@@ -19,16 +19,18 @@
 					<div class="header_title">회원가입</div>
 				</div>
 				<div class="login_line"></div>
-				<form action="find_id.do" method="post">
+				<form action="sign_up.do" method="post">
 					<div class="input_section">
-						<input type="text" id="name" placeholder="이름"> 
 						<input type="text" id="id" placeholder="아이디"> 
+						<input type="password" id="password" placeholder="비밀번호"> 
+						<input type="text" id="name" placeholder="이름"> 
+						<input type="text" id="tel" placeholder="전화번호">
 						<input type="email" id="email" placeholder="이메일">
-						<input type="search" id="email" placeholder="주소">
-						<input type="text" id="phone" placeholder="전화번호">
+						<input type="text" id="address" placeholder="주소">
 					</div>
 					<div>
-						<input class="button" type="submit" value="확인"> <input
+						<input class="button" type="submit" value="확인"> 
+						<input
 							class="button" type="button" value="취소"
 							onclick="location.href='Login.jsp'">
 					</div>

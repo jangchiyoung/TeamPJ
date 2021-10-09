@@ -26,7 +26,7 @@
     <div class="collapse navbar-collapse ">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-gr">
         <li class="nav-item">
-          <a class="btn btn-outline-success" href="#">로그인</a>
+          <a class="btn btn-outline-success" href="./community/Login.jsp">로그인</a>
         </li>
         <li class="nav-item">
           <a class="btn btn-outline-success" href="#">로그아웃</a>
