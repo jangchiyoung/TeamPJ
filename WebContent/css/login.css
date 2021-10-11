@@ -33,7 +33,7 @@ body  {
 }
 .ANBD_logo img { height: 90px;}
 
-input {
+.input {
     width:100%;
     box-sizing: border-box;
     height:50px;
@@ -44,7 +44,34 @@ input {
     font-size:14px;
     padding-left:20px;
     padding-right:20px;
-    margin-bottom:10px;
+    margin-top:10px;
+    margin-bottom:5px;
+}
+.input1 {
+    width:60%;
+    height:50px;
+    border-radius: 3px;
+    border:1px solid #e1e1e1;
+    font-family: NanumGothic;
+    color:#333333;
+    font-size:14px;
+    padding-left:20px;
+    padding-right:20px;
+    margin-top:10px;
+    margin-bottom:5px;
+}
+.input2 {
+    width:24%;
+    height:50px;
+    border-radius: 3px;
+    border:1px solid #e1e1e1;
+    font-family: NanumGothic;
+    color:#333333;
+    font-size:14px;
+    padding-left:20px;
+    padding-right:20px;
+    margin-top:10px;
+    margin-bottom:5px;
 }
 .login_button {
     color:#ffffff;
@@ -89,10 +116,34 @@ input {
 	text-align:center;
 	border-radius: 4px;
 	width: 49%;
+	margin-top: 20px;
+}
+
+.button1 {
+    background-color: #4caf50;
+    color:white;
+    cursor: pointer;
+	text-align:center;
+	border-radius: 4px;
+	width: 100%;
+	margin-top: 20px;
 	
 }
-.button {
-    margin-top: 20px;
+
+ul {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+    outline: none !important;
+}
+p {
+    display: block;
+    font-size: 13px;
+    font-style: normal;
+    text-align: center;
+    color: #8B8B9E;
+    padding: 20px 0;
 }
 /* 모바일 mobile */
 @media screen and (max-width:750px) {
@@ -106,44 +157,13 @@ input {
     .button_section > span.hor_line { margin: 0 10px;}
     .button_section { margin-bottom: 20px;}
 }
-/* 글 비밀번호 입력 모달 */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    
+/* 에러메세지 */
+.error_next_box {
+    margin-top: 9px;
+    font-size: 12px;
+    color: red;    
+    display: none;
 }
 
-/* Modal Content/Box */
-.modal-content {
-    background-color: #fefefe;
-    margin: 30% auto; /* 15% from the top and centered */
-    padding: 10px;
-    padding-bottom : 20px;
-   /*  border: 3px solid#4080bf; */
-    width: 30%; /* Could be more or less, depending on screen size */
-    font-size: xx-small;
-    border-radius: 2px;
-}
 
-/* The Close Button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
 

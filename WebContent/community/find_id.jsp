@@ -11,9 +11,9 @@
 <body>
 	<div id="login">
 		<div id="body" style="padding-top: 19.5px;">
-			<div class="container" style="padding-top:28px;">
+			<div class="container" style="padding-top: 28px;">
 				<div class="ANBD_logo">
-					<img src="../img/logo.png?v3" style="cursor: pointer;">
+					<img src="../img/logo.png?v3" onclick="location.href='../index.jsp'" style="cursor: pointer;">
 				</div>
 				<div>
 					<div class="header_title">아이디 찾기</div>
@@ -22,26 +22,25 @@
 						<div class="navigation_item">02</div>
 					</div>
 				</div>
-								<div class="login_line"></div>
+				<div class="login_line"></div>
 				<form action="find_id.do" method="post">
 					<div class="input_section">
-						<input type="text" id="name" placeholder="이름"> 
+						<input type="text" id="name" placeholder="이름">
 						<input type="email" id="email" placeholder="이메일(주소)">
 						<input type="text" id="phone" placeholder="전화번호">
 					</div>
 					<div>
-						<input class="button" type="submit" value="확인"> <input
-							class="button" type="button" value="취소"
-							onclick="location.href='Login.jsp'">
+						<input class="button" type="submit" value="확인">
+						<input class="button" type="button" value="취소" onclick="location.href='Login.jsp'">
 					</div>
 				</form>
-				<form action="">
-					<div class="button_section">
-						<a class="" href="find_id.jsp">아이디 찾기</a> <span class="hor_line">|</span>
-						<a class="" href="find_password.jsp">비밀번호 찾기</a> <span
-							class="hor_line ">|</span> <a class="" href="sign_up.jsp">회원가입</a>
-					</div>
-				</form>
+				<div class="button_section">
+					<a class="" href="find_id.jsp">아이디 찾기</a>
+					<span class="hor_line">|</span>
+					<a class="" href="find_password.jsp">비밀번호 찾기</a>
+					<span class="hor_line ">|</span>
+					<a class="" href="sign_up.jsp">회원가입</a>
+				</div>
 			</div>
 		</div>
 	</div>

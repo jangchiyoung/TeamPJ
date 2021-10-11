@@ -15,6 +15,7 @@ html, body {
 	flex-direction: unset;
 	right: 0;
 	position: absolute;
+	display: flex;
 }
 
 .nav-item {
@@ -30,4 +31,11 @@ html, body {
 	height: 120px;
 	background-color: white;
 	box-shadow: 0 4px 4px -4px black;
+}
+
+.nav .navInner {
+    position: relative;
+    max-width: 1200px;
+    height: 60px;
+    margin: 0 auto;
 }

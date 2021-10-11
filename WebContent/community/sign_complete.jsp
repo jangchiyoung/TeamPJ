@@ -4,8 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>비밀번호찾기</title>
-</head>
+<title>회원가입</title>
 <link rel="stylesheet" href="../css/login.css?v=3">
 <link rel="stylesheet" href="../css/find.css?v=3">
 </head>
@@ -17,24 +16,21 @@
 					<img src="../img/logo.png?v3"
 						onclick="location.href='../index.jsp'" style="cursor: pointer;">
 				</div>
-				<div>
-					<div class="header_title">비밀번호 찾기</div>
-					<div class="navigation_list">
-						<div class="navigation_item on">01 본인인증</div>
-						<div class="navigation_item">02</div>
-					</div>
-				</div>
+				<div class="header_title">회원가입을 축하드립니다!!</div>
 				<div class="login_line"></div>
-				<form action="find_id.do" method="post">
-					<div class="input_section">
-						<input type="text" id="id" placeholder="아이디">
-						<input type="text" id="phone" placeholder="본인 휴대폰번호">
-					</div>
-					<div>
-						<input class="button" type="submit" value="확인">
-						<input class="button" type="button" value="취소" onclick="location.href='Login.jsp'">
-					</div>
-				</form>
+				<div class="">
+					<ul>
+					<li>${vo.id }</li>
+					<li>${vo.name }</li>
+					<li>${vo.tel }</li>
+					<li>${vo.email }</li>
+					<li>${vo.address }</li>
+ 					</ul>
+				</div>
+				<div>
+					<input class="button" type="button" value="확인" onclick="location.href='../index.jsp'">
+					<input class="button" type="button" value="수정" onclick="location.href='update.jsp'">
+				</div>
 				<div class="button_section">
 					<a class="" href="find_id.jsp">아이디 찾기</a>
 					<span class="hor_line">|</span>

@@ -3,69 +3,86 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<script>
-function invalidCheck(){
-	//dom트리에서 name속성값이 id인 객체찾기
-	var inputIdObj = document.querySelector("input[name=id]");
-	//dom트리에서 name속성값이 pwd인 객체찾기
-	var inputPwdObj = document.querySelector("input[name=pwd]");
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	if(inputIdObj.value.length >10){
-		alert("ID는 최대10자리까지만 가능합니다.");
-		inputIdObj.focus();
-		return false;
-	}
-	var rePwd1 = /\W/; //특수문자용 정규식만들기 /  /
-	var rePwd2 = /\w/; //문자와숫자,_용 정규식
-	//정규식확인하는 메서드 : test()
-	if(!rePwd1.test(inputPwdObj.value)){
-		alert("비밀번호는 특수문자를 포함하세요.");
-		inputPwdObj.focus();
-		return false;
-	}
-	if(!rePwd2.test(inputPwdObj.value)){
-		alert("영문또는 숫자를 포함하세요.")
-		inputPwdObj.focus();
-		return false;
-	}
-	return true;
+
+
+<style>
+body {
+    font-family: "Lato", sans-serif;
 }
-function init(){
-	//dom트리에서 id속성값이 btLogin인 객체찾기
-	var btLoginObj = document.querySelector("#btLogin");
-	var formObj = document.querySelector("form");
-	formObj.addEventListener("submit",function(){
-		var requestURL = "login1.do";
-		this.action=requestURL;
-		this.method='post';
-		this.submit();
-	});
-	/* btLoginObj.addEventListener("click", function(e){
-		if(invalidCheck()){
-			var requestURL = "login.do";
-			//dom트리에서 form객체찾기
-			var formObj = document.querySelector("form");
-			formObj.action=requestURL;
-			formObj.method='post';
-			formObj.submit();//????
-		}
-		e.preventDefault();
-	});	 */
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 }
-//window의 load이벤트발생감시
-window.addEventListener("load", init);
-</script>
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+
+
+
 </head>
 <body>
-<div>
-<form>
-ID : <input name="id"><br>
-PWD : <input type="password" name="pwd"><br>
-<button id="btLogin">로그인</button> &nbsp;&nbsp;
-<button id="btSignup">가입</button>
-</form>
-</div> 
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+
+<h2>Animated Sidenav Example</h2>
+<p>Click on the element below to open the side navigation menu.</p>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+ 
+
+
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+
+
+    
 </body>
 </html>

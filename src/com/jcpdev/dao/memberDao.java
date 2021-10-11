@@ -1,5 +1,7 @@
 package com.jcpdev.dao;
 
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -10,7 +12,9 @@ public class memberDao {
 	private static memberDao dao = new memberDao();
 	SqlSessionFactory sqlFactory = SqlSessionBean.getSessionFactory();
 
-	private memberDao() { }
+	private memberDao() {
+		
+	}
 	public static memberDao getInstance() {
 		return dao;
 	}
@@ -21,6 +25,20 @@ public class memberDao {
 		mapper.insert("memberDto.insert", dto);
 		mapper.commit();
 		mapper.close();
+	}
+	//로그인
+	public memberDto login(Map<String,String> map) {
+		memberDto dto = null;
+		SqlSession mapper = sqlFactory.openSession();
+		dto = mapper.selectOne("memberDto.loginCheck", map);
+		return dto;
+	}
+	
+	public memberDto passwordCheck(Map<String,Object> map) {
+		SqlSession mapper = sqlFactory.openSession();
+		memberDto dto = mapper.selectOne("passwordCheck",map);
+		mapper.close();
+		return dto;
 	}
 	
 }

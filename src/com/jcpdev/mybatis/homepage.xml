@@ -10,7 +10,9 @@
 		insert into member(id,password,name,tel,email,address)
 		values (#{id},#{password},#{name},#{tel},#{email},#{address})
 	</insert>
-	
+	<select id="loginCheck" parameterType="java.util.Map" resultType="memberDto">
+		select * from member where member_id = #{id} and member_password = #{password}
+	</select>
 	
 </mapper>
 <!-- ${ } : 표현식. 중괄호안에 수식에 대한 연산결과값을 구해서 출력

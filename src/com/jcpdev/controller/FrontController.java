@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.jcpdev.controller.action.Action;
 import com.jcpdev.controller.action.ActionForward;
 import com.jcpdev.controller.action.InsertAction;
+import com.jcpdev.controller.action.LoginAction;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -43,6 +44,12 @@ public class FrontController extends HttpServlet {
 			forward = action.execute(request, response);
 			url = "index.jsp";
 			forward.setUrl(url);
+		}else if(spath.equals("/loginAction.do")) {
+			Action action = new LoginAction();
+			forward = action.execute(request, response);
+		}else if(spath.equals("/login.do")) {
+			path = "login.jsp";
+			forward = new ActionForward(false,path);
 		}
 		//이 시점에서 forward 에 isRedirect 와 url 값이 저장되었으면 ok!
 		if(forward.isRedirect()) {   //타입 boolean 일때는 getXXX 아니고 isXXX 입니다.
