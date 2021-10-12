@@ -24,7 +24,7 @@ public class LoginAction implements Action {
 		
 		HttpSession session = request.getSession();
 		PrintWriter out = response.getWriter();
-		String id=request.getParameter("userid");
+		String id=request.getParameter("id");
 		String password=request.getParameter("password");
 		
 		if(session.getAttribute("readIdx") ==null){
@@ -37,14 +37,16 @@ public class LoginAction implements Action {
 		Map<String,String> map = new HashMap<>();
 		map.put("id",id);
 		map.put("password",password);
+		System.out.println(map);
 		//2) db 테이블 select 쿼리 실행	
 		memberDao dao = memberDao.getInstance();
-		memberDto user = dao.login(map);
-		if(user !=null){
+		memberDto user_check = dao.login(map);
+		if(user_check != null){
 		//로그인 정보 일치
 			//session 객체에 로그인 id 저장합니다.
 //			session.setAttribute("uid", id);
-			session.setAttribute("user", user);
+			session.setAttribute("user_name",user_check.getMember_name());
+			session.setAttribute("user_id",user_check.getMember_id());
 //			out.print("<script>");
 //			out.print("alert('로그인 되었습니다.');");
 //			out.print("location.href='home.jsp';"); //home.jsp로 url 이동

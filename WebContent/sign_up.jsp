@@ -15,47 +15,47 @@
 			<div class="container" style="padding-top: 28px;">
 				<div class="ANBD_logo">
 					<img src="img/logo.png?v3"
-						onclick="location.href='index.jsp'" style="cursor: pointer;">
+						onclick="location.href='index.do'" style="cursor: pointer;">
 				</div>
 				<div class="header_title">회원가입</div>
 				<div class="login_line"></div>
-				<form action="index.jsp" method="post">
+				<form action="sign_up.do" method="post">
 				
 					<div class="input_section">
 						<!-- ID -->	
-						<input class="input" type="text" id="id" placeholder="아이디" maxlength="20">
+						<input class="input" type="text" id="id" name="id" placeholder="아이디" maxlength="20">
 						<span class="error_next_box"></span>
 						<!-- ID -->	
-						<input class="input" type="password" id="pswd1" placeholder="비밀번호(8자 이상)" maxlength="20">
+						<input class="input" type="password" id="pswd1" name="password" placeholder="비밀번호(8자 이상)" maxlength="20">
 						<span class="error_next_box"></span>
 						<!-- ID -->	
 						<input class="input" type="password" id="pswd2" placeholder="비밀번호 재확인">
 						<span class="error_next_box"></span>
 						<!-- ID -->	
-						<input class="input" type="text" id="name" placeholder="이름" maxlength="5"> 
+						<input class="input" type="text" id="name" name="name" placeholder="이름" maxlength="5"> 
 						<span class="error_next_box"></span>
 						<!-- ID -->	
-						<input class="input" type="text" id="tel" placeholder="전화번호 입력" maxlength="16"> 
+						<input class="input" type="text" id="tel" name="tel" placeholder="전화번호 입력" maxlength="16"> 
 						<span class="error_next_box"></span>
 						<!-- ID -->	
-						<input class="input" type="email" id="Postcode" placeholder="본인확인 이메일"> 
+						<input class="input" type="email" id="Postcode" name="email" placeholder="본인확인 이메일"> 
 						<span class="error_next_box"></span>
 						<!-- ID -->	
 						<div>
 						<input class="input2" type="button" value="주소 검색" onclick="findAddr()"><br>
-						<input class="input" type="text" name="addressName1" id="userAddress" placeholder="주소를 입력"/> <br>
-						<input class="input" type="text" name="addressName2" class="form-control" placeholder="상세 주소를 입력하세요"/> <br>
+						<input class="input" type="text" name="address" id="userAddress" placeholder="주소를 입력"/> <br>
+						<input class="input" type="text" name="address1" class="form-control" placeholder="상세 주소를 입력하세요"/> <br>
 						</div>
 						<span class="error_next_box"></span>
 						<input class="button1 input" type="submit" value="회원가입하기">
 					</div>
 				</form>
 				<div class="button_section">
-					<a class="" href="find_id.jsp">아이디 찾기</a>
+					<a class="" href="find_id.do">아이디 찾기</a>
 					<span class="hor_line">|</span>
-					<a class="" href="find_password.jsp">비밀번호 찾기</a>
+					<a class="" href="find_password.do">비밀번호 찾기</a>
 					<span class="hor_line ">|</span>
-					<a class="" href="sign_up.jsp">회원가입</a>
+					<a class="" href="join.do">회원가입</a>
 				</div>
 				<div>
 					<p>이미 회원이신가요? <a href="./login.do">로그인하기</a> </p>

@@ -28,11 +28,27 @@ public class memberDao {
 	}
 	//로그인
 	public memberDto login(Map<String,String> map) {
-		memberDto dto = null;
+		memberDto result = null;
 		SqlSession mapper = sqlFactory.openSession();
-		dto = mapper.selectOne("memberDto.loginCheck", map);
-		return dto;
+		result = mapper.selectOne("memberDto.loginCheck", map);
+		mapper.close();
+		return result;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public memberDto passwordCheck(Map<String,Object> map) {
 		SqlSession mapper = sqlFactory.openSession();

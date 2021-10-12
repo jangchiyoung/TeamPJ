@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 public class memberDto {
-	private String id;
-	private String password;
-	private String name;
-	private String tel;
-	private String email;
-	private String address;
-	private String img;
+	private String member_id;
+	private String member_password;
+	private String member_name;
+	private String member_tel;
+	private String member_email;
+	private String member_address;
+	private String member_img;
 }

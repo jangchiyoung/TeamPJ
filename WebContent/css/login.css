@@ -130,9 +130,6 @@ body  {
 	
 }
 
-ul {
-	list-style: none;
-}
 a {
 	text-decoration: none;
     outline: none !important;
@@ -144,6 +141,11 @@ p {
     text-align: center;
     color: #8B8B9E;
     padding: 20px 0;
+}
+td {
+	padding: 20px;
+	font-size: 20px;
+	font-style: normal;
 }
 /* 모바일 mobile */
 @media screen and (max-width:750px) {
