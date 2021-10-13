@@ -69,14 +69,30 @@ public class FrontController extends HttpServlet {
 		}else if(spath.equals("/login_complete.do")) {
 			path = "./community/sign_complete.jsp";
 			forward = new ActionForward(false,path);
-		}else if(spath.equals("/gallery.do")) {
-//			path = "gallery/gallery.jsp";
-//			forward = new ActionForward(false,path);
-			Action action = new GalleryListAction();
-			forward = action.execute(request, response);
-		}else if(spath.equals("/regist.do")) {
-			Action action = new GalleryRegistAction();
-			forward = action.execute(request, response);
+		}else if(spath.equals("/mypage.do")) {
+			path = "./view/mypage.jsp";
+			forward = new ActionForward(false,path);
+		}else if(spath.equals("/my_product.do")) {
+			path = "./view/my_product.jsp";
+			forward = new ActionForward(false,path);
+		}else if(spath.equals("/purchaselist.do")) {
+			path = "./view/purchaselist.jsp";
+			forward = new ActionForward(false,path);
+		}else if(spath.equals("/saleslist.do")) {
+			path = "./view/saleslist.jsp";
+			forward = new ActionForward(false,path);
+		}else if(spath.equals("/favoriteslist.do")) {
+			path = "./view/favoriteslist.jsp";
+			forward = new ActionForward(false,path);
+		}else if(spath.equals("/maillist.do")) {
+			path = "./view/maillist.jsp";
+			forward = new ActionForward(false,path);
+		}else if(spath.equals("/productAdd.do")) {
+			path = "./view/productAdd.jsp";
+			forward = new ActionForward(false,path);
+		}else if(spath.equals("/detail.do")) {
+			path = "./view/detail.jsp";
+			forward = new ActionForward(false,path);
 		}
 		//이 시점에서 forward 에 isRedirect 와 url 값이 저장되었으면 ok!
 		if(forward.isRedirect()) {   //타입 boolean 일때는 getXXX 아니고 isXXX 입니다.

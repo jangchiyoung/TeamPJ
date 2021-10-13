@@ -38,13 +38,6 @@ a {
 ul {
     list-style: none;
 }
-.breadcrumbs li {
-    float: left;
-    padding-right: 5px;
-    font-size: 12px;
-    color: #666;
-    line-height: 17px;
-}
 .breadcrumbs:after {
     clear: both;
     content: "";
@@ -133,10 +126,8 @@ input {
 .image_list li .up_img_box {
     position: relative;
     width: 100%;
-    padding-bottom: 100%;
 }
 .image_list li .item_img {
-    position: absolute;
     width: 100%;
     height: 100%;
     left: 0;
@@ -166,27 +157,6 @@ input {
 .regist_box .description dl#related_tag, .regist_box .description dl#title {
     height: 38px;
 }
-
-.regist_box .description dl {
-    width: 100%;
-    margin: 0 0 35px;
-}
-.regist_box .description dl dt {
-    width: 20%;
-    float: left;
-    line-height: 37px;
-    letter-spacing: -.8px;
-    font-weight: 700;
-}
-.regist_box .description dl dt label {
-    font-size: 15px;
-    color: #000;
-}
-.regist_box .description dl dd {
-    width: 80%;
-    float: left;
-    position: relative;
-}
 .regist_box .description .title_input {
     width: 100%;
     height: 38px;
@@ -213,22 +183,6 @@ input {
 .regist_box .description dl {
     width: 100%;
     margin: 0 0 35px;
-}
-.regist_box .description dl dt {
-    width: 20%;
-    float: left;
-    line-height: 37px;
-    letter-spacing: -.8px;
-    font-weight: 700;
-}
-.regist_box .description dl dt label {
-    font-size: 15px;
-    color: #000;
-}
-.regist_box .description dl dd {
-    width: 80%;
-    float: left;
-    position: relative;
 }
 .regist_box .description .item_select_box {
     position: relative;
@@ -268,73 +222,10 @@ input {
     margin-left: 11px;
 }
 
-.regist_box .description .item_select_box {
-    position: relative;
-    width: 155px;
-    float: left;
-}
-.regist_box .description .item_select_box select {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    font-size: 14px;
-    width: 155px;
-    height: 38px;
-    border-radius: 3px;
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid #e8ebed;
-    line-height: 17px;
-}
-.regist_box .description .item_select_box:after {
-    border: 1px solid #9ea4aa;
-    border-width: 0 1px 1px 0;
-    content: "";
-    display: inline-block;
-    height: 8px;
-    margin-top: -7px;
-    padding: 0;
-    pointer-events: none;
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: rotate(45deg);
-    width: 8px;
-    color: #454c53;
-}
-.regist_box .description dl:after {
-    clear: both;
-    content: "";
-    display: block;
-}
-.regist_box .description dl {
-    width: 100%;
-    margin: 0 0 35px;
-}
-.regist_box .description dl dt {
-    width: 20%;
-    float: left;
-    line-height: 37px;
-    letter-spacing: -.8px;
-    font-weight: 700;
-}
-.regist_box .description dl dt label {
-    font-size: 15px;
-    color: #000;
-}
 .regist_box .description .introduce {
     width: 100%;
     height: 168px;
     border: 1px solid #e8ebed;
-}
-.regist_box .description dl:after {
-    clear: both;
-    content: "";
-    display: block;
-}
-.regist_box .description dl {
-    width: 100%;
-    margin: 0 0 35px;
 }
 .regist_box .box_price {
     margin: 0;
@@ -343,11 +234,6 @@ input {
     display: block;
     content: "";
     clear: both;
-}
-.regist_box .description dl:after {
-    clear: both;
-    content: "";
-    display: block;
 }
 .item_submit_box {
     text-align: center;
@@ -358,22 +244,16 @@ input {
     color: #fff;
     padding: 16px 0;
     font-size: 17px;
-    border-radius: 3px;
+    border-radius: 10px;
+    border: 1px solid #e8ebed;
 }
 .item_submit_box .btn_item_cancel {
     margin-right: 35px;
-    background-color: #adb1c5;
+    background-color: gray;
 }
 .item_submit_box .btn_item_submit {
-    background-color: #0484f6;
+    background-color: #198754;
     height: 57px;
-}
-.item_submit_box .btn_item_cancel, .item_submit_box .btn_item_submit {
-    width: 177px;
-    color: #fff;
-    padding: 16px 0;
-    font-size: 17px;
-    border-radius: 3px;
 }
 
 input[type=date], input[type=email], input[type=number], input[type=password], input[type=tel], input[type=text], textarea {
@@ -387,15 +267,5 @@ input[type=date], input[type=email], input[type=number], input[type=password], i
     line-height: 20px;
     border: 1px solid #e8ebed;
 }
-
-
-
-
-
-
-
-
-
-
-
-
+ ul.cvf_uploaded_files .highlight {border: 1px dashed #000; width: 150px; background-color: #ccc; border-radius: 5px;}
+.delete-btn {width: 24px; border: 0; position: absolute;}
