@@ -5,54 +5,39 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import com.jcpdev.dto.memberDto;
+import com.jcpdev.dto.Member;
 import com.jcpdev.mybatis.SqlSessionBean;
 
-public class memberDao {
-	private static memberDao dao = new memberDao();
+public class MemberDao {
 	SqlSessionFactory sqlFactory = SqlSessionBean.getSessionFactory();
+	private static MemberDao dao = new MemberDao();
 
-	private memberDao() {
+	private MemberDao() {
 		
 	}
-	public static memberDao getInstance() {
+	public static MemberDao getInstance() {
 		return dao;
 	}
 	
 	//회원가입 데이터 추가
-	public void insert(memberDto dto) {
+	public void insert(Member dto) {
 		SqlSession mapper = sqlFactory.openSession();
-		mapper.insert("memberDto.insert", dto);
+		mapper.insert("Member.insert", dto);
 		mapper.commit();
 		mapper.close();
 	}
 	//로그인
-	public memberDto login(Map<String,String> map) {
-		memberDto result = null;
+	public Member login(Map<String,String> map) {
+		Member result = null;
 		SqlSession mapper = sqlFactory.openSession();
-		result = mapper.selectOne("memberDto.loginCheck", map);
+		result = mapper.selectOne("Member.loginCheck", map);
 		mapper.close();
 		return result;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public memberDto passwordCheck(Map<String,Object> map) {
+	public Member passwordCheck(Map<String,Object> map) {
 		SqlSession mapper = sqlFactory.openSession();
-		memberDto dto = mapper.selectOne("passwordCheck",map);
+		Member dto = mapper.selectOne("passwordCheck",map);
 		mapper.close();
 		return dto;
 	}

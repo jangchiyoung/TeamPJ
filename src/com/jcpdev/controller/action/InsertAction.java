@@ -1,20 +1,16 @@
 package com.jcpdev.controller.action;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.jcpdev.dao.memberDao;
-import com.jcpdev.dto.memberDto;
+import com.jcpdev.dao.MemberDao;
+import com.jcpdev.dto.Member;
 
 public class InsertAction implements Action {
 
 	
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
-			throws javax.servlet.ServletException ,java.io.IOException {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException ,java.io.IOException {
 
 		//테이블 insert
 		HttpSession session = request.getSession();
@@ -26,14 +22,14 @@ public class InsertAction implements Action {
 		String email =request.getParameter("email");
 		String address = request.getParameter("address");
 
-		memberDto dto = new memberDto();
+		Member dto = new Member();
 		dto.setMember_id(id);
 		dto.setMember_name(name);
 		dto.setMember_password(password);
 		dto.setMember_tel(tel);
 		dto.setMember_email(email);
 		dto.setMember_address(address);
-		memberDao dao = memberDao.getInstance();
+		MemberDao dao = MemberDao.getInstance();
 		dao.insert(dto);
 		
 		if(session.getAttribute("readIdx") ==null){
@@ -43,7 +39,7 @@ public class InsertAction implements Action {
 		
 		
 		//2) db 테이블 select 쿼리 실행	
-		memberDto user_login = dto;
+		Member user_login = dto;
 		if(user_login != null){
 			session.setAttribute("user_id",user_login.getMember_id());
 			session.setAttribute("user_name",user_login.getMember_name());
@@ -51,7 +47,6 @@ public class InsertAction implements Action {
 			session.setAttribute("user_email",user_login.getMember_email());
 			session.setAttribute("user_address",user_login.getMember_address());
 		}
-//		response.sendRedirect("listAction.jsp");
 		ActionForward foward = new ActionForward();
 		foward.isRedirect = true;
 		foward.url="login_complete.do";

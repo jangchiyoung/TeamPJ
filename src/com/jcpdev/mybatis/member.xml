@@ -3,15 +3,15 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- sql mapper   -->  
-<mapper namespace="memberDto"> <!-- namespace : 일종의 식별역할의 변수 -->
+<mapper namespace="Member"> <!-- namespace : 일종의 식별역할의 변수 -->
 
-	<insert id="insert" parameterType="memberDto" useGeneratedKeys="true"
+	<insert id="insert" parameterType="Member" useGeneratedKeys="true"
 				keyColumn="idx" keyProperty="idx">
 		insert into member(member_id,member_password,member_name,member_tel,member_email,member_address)
 		values (#{member_id},#{member_password},#{member_name},#{member_tel},#{member_email},#{member_address})
 	</insert>
 	
-	<select id="loginCheck" parameterType="java.util.Map" resultType="memberDto">
+	<select id="loginCheck" parameterType="java.util.Map" resultType="Member">
 		select * from member where member_id = #{id} and member_password = #{password}  
 	</select>
 	
@@ -19,5 +19,3 @@
 	insert into member(member_img) values(#{member_img}) where id = #{id}
 	</insert>
 </mapper>
-<!-- ${ } : 표현식. 중괄호안에 수식에 대한 연산결과값을 구해서 출력
-     #{ } : 무조건 문자열(' '기호사용)로 중괄호 안의 값을 처리합니다. -->

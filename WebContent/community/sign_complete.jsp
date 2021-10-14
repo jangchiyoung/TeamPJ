@@ -56,8 +56,7 @@
 					
 				</div>
 				<div>
-					<input class="button input" type="button" value="확인" onclick="location.href='./index.do'">
-					<input class="button input" type="button" value="수정" onclick="location.href='update.jsp'">
+					<input class="button1 input" type="button" value="확인" onclick="location.href='./index.do'">
 				</div>
 				<div class="button_section">
 					<a class="" href="find_id.do">아이디 찾기</a>

@@ -1,16 +1,15 @@
 package com.jcpdev.dto;
 
-//lombok
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+public class Category {
+	private int category_no;
+	private String category_name;
+	
 
-public class favoritesDto {
-	private int no;
-	private int p_no;
-	private String m_id;
 }

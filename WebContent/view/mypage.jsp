@@ -10,7 +10,7 @@
 	<div class="mypage-section1">
 <div class="container">
     <div class="main-body">
-    
+         <form action="">
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
               <div class="card">
@@ -107,15 +107,14 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class="btn btn-outline-success btn-block">수정</a>
+                      <input type="submit" value="수정" class="btn btn-outline-success btn-block">
                     </div>
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
-
+          </form>
         </div>
     </div>
 	</div>

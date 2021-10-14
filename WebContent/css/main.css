@@ -21,7 +21,9 @@
     border:none;
 	margin-bottom: 7em;
 }
-
+.card-img-top {
+	height: 10em;
+}
 /* .mypage-section {
 	margin-top: 140px;
 	min-height: 100%;

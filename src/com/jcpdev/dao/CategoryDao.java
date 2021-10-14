@@ -4,12 +4,12 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.jcpdev.mybatis.SqlSessionBean;
 
-public class categoryDao {
-	private static categoryDao dao = new categoryDao();
+public class CategoryDao {
+	private static CategoryDao dao = new CategoryDao();
 	SqlSessionFactory sqlFactory = SqlSessionBean.getSessionFactory();
 
-	private categoryDao() { }
-	public static categoryDao getInstance() {
+	private CategoryDao() { }
+	public static CategoryDao getInstance() {
 		return dao;
 	}
 }
