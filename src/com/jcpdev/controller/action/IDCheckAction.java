@@ -21,7 +21,6 @@ public class IDCheckAction implements Action {
 		response.setContentType("text/html");
 		
 		HttpSession session = request.getSession();
-		PrintWriter out = response.getWriter();
 		String id=request.getParameter("id");
 		System.out.println(id);
 		

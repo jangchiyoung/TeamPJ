@@ -22,6 +22,19 @@
 		select * from member where member_id = #{id} and member_email = #{email} and member_tel = #{tel}
 	</select>
 	
+	<update id="update_password" parameterType="Member">
+		update member set member_password =#{member_password}
+		where member_id =#{member_id} and member_email =#{member_email} and member_tel = #{member_tel}
+	</update>
+
+	<update id="update_myprofile" parameterType="Member">
+		update member set
+		member_password =#{member_password}, member_name =#{member_name},
+		member_tel =#{member_tel), member_email =#{member_email},
+		member_address =#{member_address}, member_img1 =# {member_img1} where
+		member_id =#{member_id}
+	</update>
+	
 	<select id="idCheck"  resultType="Member">
 		select * from member where member_id = #{id}
 	</select>

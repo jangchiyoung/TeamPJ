@@ -10,8 +10,12 @@
 </head>
 <body>
 <%
-	Object id = session.getAttribute("user_id");
-	String user_id = (String)id;
+Object id = session.getAttribute("user_id");
+Object tel = session.getAttribute("user_tel");
+Object email = session.getAttribute("user_email");
+String user_id = (String)id;
+String user_tel = (String)tel;
+String user_email = (String)email;
 %>
 	<div id="login">
 		<div id="body" style="padding-top: 19.5px;">
@@ -20,33 +24,39 @@
 					<img src="../img/logo.png?v3"
 						onclick="location.href='./index.jsp'" style="cursor: pointer;">
 				</div>
-				<div class="header_title">비밀번호 찾기 완료</div>
+				<div class="header_title">비밀번호 재설정</div>
 				<div class="navigation_list">
 						<div class="navigation_item ">01</div>
 						<div class="navigation_item on">02 본인인증</div>
 					</div>
+				<form action="../update_password.do" method="post">
+				<input type="hidden" name="id" value="${user_id}">
+ 				<input type="hidden" name="tel" value="${user_tel }">
+ 				<input type="hidden" name="email" value="${user_email }">
 				<div class="login_line"></div>
-				<div class="">
-					<table>
-					<tr> 
-					<td>비밀번호 : </td>
-					<td>${user_password }</td>
-					</tr>
-					</table>
-					
+				<div class="input_section">
+				<input class="input" type="password" id="pswd1" name="password" placeholder="비밀번호(8자 이상)" required="required">
+						<span class="error_next_box"></span>
+						<!-- ID -->	
+						<input class="input" type="password" id="pswd2" placeholder="비밀번호 재확인" required="required" maxlength="20"required="required">
+						<span class="error_next_box"></span>
+				
 				</div>
 				<div>
-					<input class="button1 input" type="button" value="확인" onclick="location.href='../login.do'">
+					<input class="button1 input" type="submit" value="확인">
 				</div>
+				</form>
 				<div class="button_section">
 					<a class="" href="../find_id.do">아이디 찾기</a>
 					<span class="hor_line">|</span>
 					<a class="" href="../find_password.do">비밀번호 찾기</a>
 					<span class="hor_line ">|</span>
-					<a class="" href="../sign_up.do">회원가입</a>
+					<a class="" href="../join.do">회원가입</a>
 				</div>
 			</div>
 		</div>
 	</div>
+	
+	<script src="../js/main.js"  type="text/javascript"></script>
 </body>
 </html>

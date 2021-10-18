@@ -28,7 +28,7 @@ public class ProductDao {
 	}
 	
 	
-	public Product getOne(int idx) {	// 상풍 상세
+	public Product getOne(int idx) {	// 상품 상세
 		SqlSession mapper = factory.openSession();
 		Product dto = mapper.selectOne("product.getOne", idx);  
 		mapper.close();

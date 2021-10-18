@@ -40,8 +40,12 @@ public class LoginAction implements Action {
 		Member user_check = dao.login(map);
 		if(user_check != null){
 			//로그인 정보 일치
-				session.setAttribute("user_name",user_check.getMember_name());
 				session.setAttribute("user_id",user_check.getMember_id());
+				session.setAttribute("user_name",user_check.getMember_name());
+				session.setAttribute("user_tel",user_check.getMember_tel());
+				session.setAttribute("user_email",user_check.getMember_email());
+				session.setAttribute("user_address",user_check.getMember_address());
+				session.setAttribute("user_password",user_check.getMember_password());
 				request.setAttribute("message", "로그인 되었습니다.");
 				request.setAttribute("url", "./");
 			}else {

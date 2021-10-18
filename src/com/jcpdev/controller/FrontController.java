@@ -17,9 +17,13 @@ import com.jcpdev.controller.action.InsertAction;
 import com.jcpdev.controller.action.LoginAction;
 import com.jcpdev.controller.action.LogoutAction;
 import com.jcpdev.controller.action.MainAction;
+import com.jcpdev.controller.action.MypageAction;
 import com.jcpdev.controller.action.ProductAdd;
 import com.jcpdev.controller.action.find_idAction;
 import com.jcpdev.controller.action.find_passwordAction;
+import com.jcpdev.controller.action.Update_password;
+import com.jcpdev.dao.MemberDao;
+import com.jcpdev.dto.Member;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -111,6 +115,12 @@ public class FrontController extends HttpServlet {
 			forward = action.execute(request, response); 
 		}else if(spath.equals("/findPassword_complete.do")) {
 			Action action = new find_passwordAction();
+			forward = action.execute(request, response); 
+		}else if(spath.equals("/update_password.do")) {
+			Action action = new Update_password();
+			forward = action.execute(request, response); 
+		}else if(spath.equals("/update_mypage.do")) {
+			Action action = new MypageAction();
 			forward = action.execute(request, response); 
 		}
 		

@@ -64,4 +64,17 @@ public class MemberDao {
 		mapper.close();
 		return result;
 	}
+	public void update_password(Member dto) {
+		SqlSession mapper = sqlFactory.openSession();
+		mapper.update("Member.update_password", dto);
+		mapper.commit();
+		mapper.close();
+	}
+	
+	public void update_myprofile(Member dto) {
+		SqlSession mapper = sqlFactory.openSession();
+		mapper.update("Member.update_myprofile", dto);
+		mapper.commit();
+		mapper.close();
+	}
 }

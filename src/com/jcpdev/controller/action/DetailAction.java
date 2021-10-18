@@ -19,7 +19,10 @@ public class DetailAction implements Action {
 		HttpSession session = request.getSession();
 		int idx = Integer.parseInt(request.getParameter("pno"));
 //		int pageNo = Integer.parseInt(request.getParameter("page"));
-
+		
+		
+		
+		
 		ProductDao dao = ProductDao.getInstance();
 		if (session.getAttribute("readIdx") != null) {
 			StringBuilder readIdx = (StringBuilder) session.getAttribute("readIdx");

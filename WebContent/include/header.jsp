@@ -18,7 +18,7 @@
 <body>
 <%
 	Object sc = session.getAttribute("user_name");
-	String user_name = (String)sc;
+	Object sc1 = session.getAttribute("user_id");
 %>
 <div class="header fixed-top">
 <div class="container fixed-top">

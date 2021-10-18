@@ -59,7 +59,7 @@
 			<a href="#" class="article-profile-link ">
 			<article class="detail-profile">
 				<img alt="" src="img/person.png">
-				<p>${bean.product_seller }</p>
+				<p onclick="location.href='mypageProfile.do?'" id="id">${bean.product_seller }</p>
 			</article>
 			</a>
 			<article class="detail-content">
@@ -76,7 +76,7 @@ ${bean.product_content }
 			</div>
 			</article>
 			<article class="detail-message" style="text-align: right;">
-			<p class="btn btn-outline-success">Message</p>
+			<p class="btn btn-outline-success" onclick="location.href='mailSend.do'">Message</p>
 			<p class="btn btn-outline-danger">Like</p>
 			</article>
 			<article class="detail-other">
