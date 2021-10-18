@@ -12,11 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 import com.jcpdev.controller.action.Action;
 import com.jcpdev.controller.action.ActionForward;
 import com.jcpdev.controller.action.DetailAction;
+import com.jcpdev.controller.action.IDCheckAction;
 import com.jcpdev.controller.action.InsertAction;
 import com.jcpdev.controller.action.LoginAction;
 import com.jcpdev.controller.action.LogoutAction;
 import com.jcpdev.controller.action.MainAction;
 import com.jcpdev.controller.action.ProductAdd;
+import com.jcpdev.controller.action.find_idAction;
+import com.jcpdev.controller.action.find_passwordAction;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -80,7 +83,7 @@ public class FrontController extends HttpServlet {
 			path = "./view/purchaselist.jsp";
 			forward = new ActionForward(false,path);
 		}else if(spath.equals("/saleslist.do")) {
-			path = "./view/saleslist.jsp";
+			path = "./view/mypage.jsp";
 			forward = new ActionForward(false,path);
 		}else if(spath.equals("/favoriteslist.do")) {
 			path = "./view/favoriteslist.jsp";
@@ -103,6 +106,12 @@ public class FrontController extends HttpServlet {
 		}else if(spath.equals("/mypageProfile.do")) {
 			path = "./view/mypageProfile.jsp";
 			forward = new ActionForward(false,path);
+		}else if(spath.equals("/findId_complete.do")) {
+			Action action = new find_idAction();
+			forward = action.execute(request, response); 
+		}else if(spath.equals("/findPassword_complete.do")) {
+			Action action = new find_passwordAction();
+			forward = action.execute(request, response); 
 		}
 		
 		if(forward.isRedirect()) {  
