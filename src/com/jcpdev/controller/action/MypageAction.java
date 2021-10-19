@@ -1,6 +1,7 @@
 package com.jcpdev.controller.action;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,40 +18,37 @@ public class MypageAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
 		
 		HttpSession session = request.getSession();
-		request.setCharacterEncoding("UTF-8");
-		String member_id =request.getParameter("id");
-		String member_name =request.getParameter("name");
-		String member_password =request.getParameter("password");
-		String member_tel =request.getParameter("tel");
-		String member_email =request.getParameter("email");
-		String member_address =request.getParameter("address");
-		String member_img1 =request.getParameter("img1");
-		System.out.println("아이디"+member_id);
-		System.out.println("비밀번호"+member_password);
-		System.out.println("전화번호"+member_tel);
-		System.out.println("이메일"+member_email);
+		String id=request.getParameter("id");
+		
 		if(session.getAttribute("readIdx") ==null){
 			StringBuilder readIdx=new StringBuilder("/");
 			session.setAttribute("readIdx", readIdx);
 		}
-		Member dto = new Member();
-		dto.setMember_id(member_id);
-		dto.setMember_password(member_password);
-		dto.setMember_name(member_name);
-		dto.setMember_tel(member_tel);
-		dto.setMember_email(member_email);
-		dto.setMember_address(member_address);
-		dto.setMember_img1(member_img1);
+		
+		Map<String,String> map = new HashMap<>();
+		map.put("id",id);
+		System.out.println(map);
 		MemberDao dao = MemberDao.getInstance();
-		dao.update_myprofile(dto);
+		Member user_check = dao.idCheck(id);
+		if(user_check != null){
+			//로그인 정보 일치
+				session.setAttribute("user_id",user_check.getMember_id());
+				session.setAttribute("user_name",user_check.getMember_name());
+				request.setAttribute("message", "로그인 되었습니다.");
+				request.setAttribute("url", "./");
+			}else {
+				request.setAttribute("message", "로그인 정보가 올바르지 않습니다.");
+				request.setAttribute("url", "login.do");   //변경
+			}
 		
 		ActionForward foward = new ActionForward();
-		foward.isRedirect = true;
-		foward.url = "/view/mypage.jsp";
+		foward.isRedirect = false;
+		foward.url="error/alert.jsp";
 		return foward;
 	}
 

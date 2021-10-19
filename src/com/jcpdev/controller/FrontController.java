@@ -12,18 +12,15 @@ import javax.servlet.http.HttpServletResponse;
 import com.jcpdev.controller.action.Action;
 import com.jcpdev.controller.action.ActionForward;
 import com.jcpdev.controller.action.DetailAction;
-import com.jcpdev.controller.action.IDCheckAction;
 import com.jcpdev.controller.action.InsertAction;
 import com.jcpdev.controller.action.LoginAction;
 import com.jcpdev.controller.action.LogoutAction;
 import com.jcpdev.controller.action.MainAction;
-import com.jcpdev.controller.action.MypageAction;
+import com.jcpdev.controller.action.MypageUpdateAction;
 import com.jcpdev.controller.action.ProductAdd;
 import com.jcpdev.controller.action.find_idAction;
 import com.jcpdev.controller.action.find_passwordAction;
 import com.jcpdev.controller.action.Update_password;
-import com.jcpdev.dao.MemberDao;
-import com.jcpdev.dto.Member;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -48,7 +45,6 @@ public class FrontController extends HttpServlet {
 		ActionForward forward=null; 
 		String spath = request.getServletPath();
 		String path="index.jsp";
-		String url ="./";   //�삉�뒗 request.getContextPath();
 		
 		if(spath.equals("/sign_up.do")) {
 			Action action = new InsertAction();
@@ -120,7 +116,7 @@ public class FrontController extends HttpServlet {
 			Action action = new Update_password();
 			forward = action.execute(request, response); 
 		}else if(spath.equals("/update_mypage.do")) {
-			Action action = new MypageAction();
+			Action action = new MypageUpdateAction();
 			forward = action.execute(request, response); 
 		}
 		

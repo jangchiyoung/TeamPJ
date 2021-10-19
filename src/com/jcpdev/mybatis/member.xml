@@ -18,6 +18,7 @@
 	<select id="findId" parameterType="java.util.Map" resultType="Member">
 		select * from member where member_name = #{name} and member_email = #{email} and member_tel = #{tel}
 	</select>
+	
 	<select id="findPassWord" parameterType="java.util.Map" resultType="Member">
 		select * from member where member_id = #{id} and member_email = #{email} and member_tel = #{tel}
 	</select>
@@ -28,11 +29,14 @@
 	</update>
 
 	<update id="update_myprofile" parameterType="Member">
-		update member set
-		member_password =#{member_password}, member_name =#{member_name},
-		member_tel =#{member_tel), member_email =#{member_email},
-		member_address =#{member_address}, member_img1 =# {member_img1} where
-		member_id =#{member_id}
+		update member set 
+		member_password = #{member_password}, 
+		member_name = #{member_name}, 
+		member_tel = #{member_tel}, 
+		member_email = #{member_email}, 
+		member_address = #{member_address}, 
+		member_img1 = #{member_img1} 
+		where member_id = #{member_id}
 	</update>
 	
 	<select id="idCheck"  resultType="Member">

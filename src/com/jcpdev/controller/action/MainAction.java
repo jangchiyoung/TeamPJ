@@ -1,7 +1,6 @@
 package com.jcpdev.controller.action;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,11 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.jcpdev.dao.MailDao;
-import com.jcpdev.dao.MemberDao;
 import com.jcpdev.dao.ProductDao;
-import com.jcpdev.dto.Mail;
-import com.jcpdev.dto.Member;
 import com.jcpdev.dto.PageDto;
 import com.jcpdev.dto.Product;
 

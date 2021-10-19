@@ -17,9 +17,9 @@
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
                     <div class="filebox">
-	                    <img src="" class="rounded-circle" width="150" height="150" id="preview-image">
+	                    <img src="/img/${user_img1 }" class="rounded-circle" width="150" height="150" id="preview-image">
 	                    <label for="img1">변경</label>
-						<input type="file" id="img1" value="${user_img1 }">
+						<input type="file" id="img1" name="img1" value="${user_img1 }">
 					</div>
                     <div class="mt-3">
                       <h4>${user_name}</h4>
@@ -47,7 +47,7 @@
                       <h6 class="mb-0">이름</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <input type="text" class="form-control" id="name" value="${user_name }">
+                      <input type="text" class="form-control" id="name" name="name" value="${user_name }">
                     </div>
                   </div>
                   <hr>     
@@ -56,7 +56,8 @@
                       <h6 class="mb-0">아이디</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <input type="text" disabled="disabled" class="form-control" id="id" value="${user_id }">
+                      <input type="text" disabled="disabled" class="form-control" value="${user_id }">
+                      <input type="hidden" name="id" value="${user_id }">
                     </div>
                   </div>
                   <hr>
@@ -74,7 +75,7 @@
                       <h6 class="mb-0">비밀번호 확인</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <input type="password" class="form-control" id="password">
+                      <input type="password" class="form-control" id="password" name="password">
                     </div>
                   </div>
                   <hr>
@@ -83,7 +84,7 @@
                       <h6 class="mb-0">전화번호</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <input type="text" class="form-control" id="tel" value="${user_tel }">
+                      <input type="text" class="form-control" id="tel" name="tel" value="${user_tel }">
                     </div>
                   </div>
                   <hr>
@@ -92,7 +93,7 @@
                       <h6 class="mb-0">메일</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                   		 <input type="text" class="form-control" id="email" value="${user_email }">
+                   		 <input type="text" class="form-control" id="email" name="email" value="${user_email }">
                     </div>
                   </div>
                     <hr>
@@ -101,7 +102,7 @@
                       <h6 class="mb-0">주소</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      	 <input type="text" class="form-control" id="address" value="${user_address }">
+                      	 <input type="text" class="form-control" id="address" name="address" value="${user_address }">
                     </div>
                   </div>
                   <hr>
