@@ -1,3 +1,5 @@
+<%@page import="com.jcpdev.dto.Product"%>
+<%@page import="com.jcpdev.dao.MemberDao"%>
 <%@include file="../include/header.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -45,7 +47,6 @@
       </div>
     </c:if>
     </div>
-
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
@@ -58,8 +59,11 @@
 			</article>
 			<a href="#" class="article-profile-link ">
 			<article class="detail-profile">
-				<img alt="" src="img/person.png">
-				<p onclick="location.href='mypageProfile.do?'" id="id">${bean.product_seller }</p>
+				<form action="mypageProfile.do">
+				<img onclick="location.href='mypageProfile.do'" src="/img/${member.member_img1 }">
+				<input type="hidden" name="member_id" value="${member.member_id }">
+				<input  class="member_id"onclick="location.href='mypageProfile.do'" type="submit" value="${member.member_name }">
+				</form>
 			</article>
 			</a>
 			<article class="detail-content">
@@ -75,10 +79,12 @@ ${bean.product_content }
 				</pre>
 			</div>
 			</article>
+			<c:if test="${bean.product_seller != sessionScope.user_id }"> <!-- 자기상품 아닐때만 보이기 -->
 			<article class="detail-message" style="text-align: right;">
-			<p class="btn btn-outline-success" onclick="location.href='mailSend.do'">Message</p>
-			<p class="btn btn-outline-danger">Like</p>
+			<a href='MakeMail.do?pno=${bean.product_no}'><p class="btn btn-outline-success">Message</p></a>
+			<a><p class="btn btn-outline-danger">Like</p></a>
 			</article>
+			</c:if>
 			<article class="detail-other">
 			<p class="article-counts">관심 0 ∙ 조회 ${bean.product_readcount }</p>
 			</article>

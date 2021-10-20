@@ -14,9 +14,8 @@ public class LogoutAction implements Action {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		
-		request.setAttribute("message", "로그아웃 되셨습니다.");
-		request.setAttribute("url", "./");
-//		pageContext.include("error/alert.jsp");
+		request.setAttribute("message", "로그아웃");
+		request.setAttribute("url", "index.do");
 		
 		session.invalidate();	
 		ActionForward foward = new ActionForward();

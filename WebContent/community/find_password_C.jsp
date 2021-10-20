@@ -5,23 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
-<link rel="stylesheet" href="../css/login.css?v=3">
-<link rel="stylesheet" href="../css/find.css?v=3">
+<link rel="stylesheet" href="css/login.css?v=3">
+<link rel="stylesheet" href="css/find.css?v=3">
 </head>
 <body>
-<%
-Object id = session.getAttribute("user_id");
-Object tel = session.getAttribute("user_tel");
-Object email = session.getAttribute("user_email");
-String user_id = (String)id;
-String user_tel = (String)tel;
-String user_email = (String)email;
-%>
 	<div id="login">
 		<div id="body" style="padding-top: 19.5px;">
 			<div class="container" style="padding-top: 28px;">
 				<div class="ANBD_logo">
-					<img src="../img/logo.png?v3"
+					<img src="img/logo.png?v3"
 						onclick="location.href='./index.jsp'" style="cursor: pointer;">
 				</div>
 				<div class="header_title">비밀번호 재설정</div>
@@ -29,13 +21,11 @@ String user_email = (String)email;
 						<div class="navigation_item ">01</div>
 						<div class="navigation_item on">02 본인인증</div>
 					</div>
-				<form action="../update_password.do" method="post">
-				<input type="hidden" name="id" value="${user_id}">
- 				<input type="hidden" name="tel" value="${user_tel }">
- 				<input type="hidden" name="email" value="${user_email }">
+				<form action="update_password.do" method="post">
+				<input type="hidden" name="member_id" value="${bean.member_id}">
 				<div class="login_line"></div>
 				<div class="input_section">
-				<input class="input" type="password" id="pswd1" name="password" placeholder="비밀번호(8자 이상)" required="required">
+				<input class="input" type="password" id="pswd1" name="member_password" placeholder="비밀번호(8자 이상)" required="required">
 						<span class="error_next_box"></span>
 						<!-- ID -->	
 						<input class="input" type="password" id="pswd2" placeholder="비밀번호 재확인" required="required" maxlength="20"required="required">

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import com.jcpdev.dao.MemberDao;
 import com.jcpdev.dto.Member;
 
-public class find_idAction implements Action {
+public class FindIdAtion implements Action {
 
 	
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException ,java.io.IOException {
@@ -18,29 +18,24 @@ public class find_idAction implements Action {
 		//테이블 insert
 		HttpSession session = request.getSession();
 		request.setCharacterEncoding("UTF-8");
-		String name =request.getParameter("name");
-		String tel =request.getParameter("tel");
-		String email =request.getParameter("email");
+		String member_name =request.getParameter("member_name");
+		String member_tel =request.getParameter("member_tel");
+		String member_email =request.getParameter("member_email");
 		
 		if(session.getAttribute("readIdx") ==null){
 			StringBuilder readIdx=new StringBuilder("/");
 			session.setAttribute("readIdx", readIdx);
 		}
 		Map<String,String> map = new HashMap<>();
-		map.put("name",name);
-		map.put("email",email);
-		map.put("tel",tel);
-		System.out.println(map);
+		map.put("member_name",member_name);
+		map.put("member_email",member_email);
+		map.put("member_tel",member_tel);
 		MemberDao dao = MemberDao.getInstance();
-		Member user_check = dao.findId(map);
+		Member user = dao.findId(map);
+		request.setAttribute("bean", user);
 		
-		//2) db 테이블 select 쿼리 실행	
-		Member find_id = user_check;
-		if(find_id != null){
-			session.setAttribute("user_id",find_id.getMember_id());
-		}
 		ActionForward foward = new ActionForward();
-		foward.isRedirect = true;
+		foward.isRedirect = false;
 		foward.url="community/find_id_C.jsp";
 		return foward;
 	};

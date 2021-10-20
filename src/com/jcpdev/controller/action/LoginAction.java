@@ -1,7 +1,6 @@
 package com.jcpdev.controller.action;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,8 +22,8 @@ public class LoginAction implements Action {
 		response.setContentType("text/html");
 		
 		HttpSession session = request.getSession();
-		String id=request.getParameter("id");
-		String password=request.getParameter("password");
+		String member_id=request.getParameter("member_id");
+		String member_password=request.getParameter("member_password");
 		
 		if(session.getAttribute("readIdx") ==null){
 			StringBuilder readIdx=new StringBuilder("/");
@@ -32,20 +31,19 @@ public class LoginAction implements Action {
 		}
 		
 		Map<String,String> map = new HashMap<>();
-		map.put("id",id);
-		map.put("password",password);
-		System.out.println(map);
+		map.put("member_id",member_id);
+		map.put("member_password",member_password);
 		MemberDao dao = MemberDao.getInstance();
 		Member user_check = dao.login(map);
 		if(user_check != null){
-			//로그인 정보 일치
 				session.setAttribute("user_id",user_check.getMember_id());
 				session.setAttribute("user_name",user_check.getMember_name());
-				request.setAttribute("message", "로그인 되었습니다.");
-				request.setAttribute("url", "./");
+				session.setAttribute("user_img",user_check.getMember_img1());
+				request.setAttribute("message", "로그인 성공");
+				request.setAttribute("url", "index.do");
 			}else {
-				request.setAttribute("message", "로그인 정보가 올바르지 않습니다.");
-				request.setAttribute("url", "login.do");   //변경
+				request.setAttribute("message", "로그인 실패");
+				request.setAttribute("url", "login.do");
 			}
 		
 		ActionForward foward = new ActionForward();

@@ -255,11 +255,6 @@ a {
     clear: both;
     content: "";
 }
-.tab_content:after {
-    display: block;
-    clear: both;
-    content: "";
-}
 .profile_right_main {
     float: right;
     margin-left: 0;
@@ -330,7 +325,6 @@ a {
     cursor: pointer;
 }
 a, address, article, aside, b, big, body, center, code, dd, details, div, dl, dt, footer, form, header, html, i, iframe, img, input, ins, label, li, mark, menu, nav, object, output, p, q, s, section, select, small, span, strong, sub, summary, table, tbody, td, textarea, th, thead, time, tr, u, ul, var, video {
-    vertical-align: baseline;
     font-weight: 400;
     color: rgb(51, 51, 51);
     font-family: 돋움, Dotum, Arial;
@@ -434,7 +428,8 @@ a {
 }
 .profile_right_main .main_col_3 {
     width: 30.33%;
-    margin-right: 3%;
+    margin-right: 12px;
+    margin-left: 12px;
     min-height: auto;
 }
 .mian_row .main_col_3, .mian_row .main_col_4 {
@@ -449,8 +444,8 @@ a {
 .image_wrapper .image_outside .thumbnail_img, .image_wrapper .image_outside .thumbnail_state_img {
     top: 0;
     left: 0;
-    width: 100%;
-    height: auto;
+    width: 220px;
+    height: 220px;
     z-index: 10;
 }
 .cont .item_price {
@@ -466,4 +461,7 @@ a {
     overflow: hidden;
     line-height: 22px;
     margin-top: 8px;
+}
+.profile_right_main .my_profile_item_menu {
+    width: 100%;
 }

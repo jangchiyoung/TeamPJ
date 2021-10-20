@@ -11,16 +11,23 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.jcpdev.controller.action.Action;
 import com.jcpdev.controller.action.ActionForward;
-import com.jcpdev.controller.action.DetailAction;
+import com.jcpdev.controller.action.DeleteProduct;
 import com.jcpdev.controller.action.InsertAction;
 import com.jcpdev.controller.action.LoginAction;
+import com.jcpdev.controller.action.LoginCompleteAction;
 import com.jcpdev.controller.action.LogoutAction;
+import com.jcpdev.controller.action.MailAction;
 import com.jcpdev.controller.action.MainAction;
+import com.jcpdev.controller.action.MakeMailAction;
+import com.jcpdev.controller.action.MypageAction;
 import com.jcpdev.controller.action.MypageUpdateAction;
-import com.jcpdev.controller.action.ProductAdd;
-import com.jcpdev.controller.action.find_idAction;
-import com.jcpdev.controller.action.find_passwordAction;
-import com.jcpdev.controller.action.Update_password;
+import com.jcpdev.controller.action.ProductDetailAction;
+import com.jcpdev.controller.action.UpdatePasswordAction;
+import com.jcpdev.controller.action.MyProfileAction;
+import com.jcpdev.controller.action.InsertProduct;
+import com.jcpdev.controller.action.FindIdAtion;
+import com.jcpdev.controller.action.FindPasswordAtion;
+import com.jcpdev.controller.action.GetMySellList;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -71,15 +78,15 @@ public class FrontController extends HttpServlet {
 			Action action = new MainAction();
 			forward = action.execute(request, response);
 		}else if(spath.equals("/login_complete.do")) {
-			path = "./community/sign_complete.jsp";
-			forward = new ActionForward(false,path);
-		}else if(spath.equals("/mypage.do")) {
-			path = "./view/mypage.jsp";
-			forward = new ActionForward(false,path);
+			Action action = new LoginCompleteAction();
+			forward = action.execute(request, response);
+		} else if(spath.equals("/mypage.do")) {
+			Action action = new MypageAction();
+			forward = action.execute(request, response);
 		}else if(spath.equals("/my_product.do")) {
-			path = "./view/my_product.jsp";
-			forward = new ActionForward(false,path);
-		}else if(spath.equals("/purchaselist.do")) {
+			Action action = new GetMySellList();
+			forward = action.execute(request, response);
+		} else if(spath.equals("/purchaselist.do")) {
 			path = "./view/purchaselist.jsp";
 			forward = new ActionForward(false,path);
 		}else if(spath.equals("/saleslist.do")) {
@@ -88,36 +95,45 @@ public class FrontController extends HttpServlet {
 		}else if(spath.equals("/favoriteslist.do")) {
 			path = "./view/favoriteslist.jsp";
 			forward = new ActionForward(false,path);
-		}else if(spath.equals("/maillist.do")) {
-			path = "./view/maillist.jsp";
-			forward = new ActionForward(false,path);
+		}else if(spath.equals("/mail.do")) {
+			Action action = new MailAction();
+			forward = action.execute(request, response);
+		}else if(spath.equals("/MakeMail.do")) {
+			Action action = new MakeMailAction();
+			forward = action.execute(request, response);
 		}else if(spath.equals("/productAdd.do")) {
 			path = "./view/productAdd.jsp";
 			forward = new ActionForward(false,path);
 		}else if(spath.equals("/detail.do")) {
-			Action action = new DetailAction();
+			Action action = new ProductDetailAction();
 			forward = action.execute(request, response);
 		}else if(spath.equals("/productInsert.do")) {
-			Action action = new ProductAdd();
+			Action action = new InsertProduct();
 			forward = action.execute(request, response);
 		}else if(spath.equals("/mailSend.do")) {
 			path = "./view/mailSend.jsp";
 			forward = new ActionForward(false,path);
 		}else if(spath.equals("/mypageProfile.do")) {
-			path = "./view/mypageProfile.jsp";
-			forward = new ActionForward(false,path);
+			Action action = new MyProfileAction();
+			forward = action.execute(request, response);
 		}else if(spath.equals("/findId_complete.do")) {
-			Action action = new find_idAction();
+			Action action = new FindIdAtion();
 			forward = action.execute(request, response); 
 		}else if(spath.equals("/findPassword_complete.do")) {
-			Action action = new find_passwordAction();
+			Action action = new FindPasswordAtion();
 			forward = action.execute(request, response); 
+		}else if (spath.equals("/findPassword_refix.do")) {
+			path = "./community/find_password_C.jsp";
+			forward = new ActionForward(false, path);
 		}else if(spath.equals("/update_password.do")) {
-			Action action = new Update_password();
+			Action action = new UpdatePasswordAction();
 			forward = action.execute(request, response); 
 		}else if(spath.equals("/update_mypage.do")) {
 			Action action = new MypageUpdateAction();
 			forward = action.execute(request, response); 
+		}else if (spath.equals("/DeleteProduct.do")) {
+			Action action = new DeleteProduct();
+			forward = action.execute(request, response);
 		}
 		
 		if(forward.isRedirect()) {  

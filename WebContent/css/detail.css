@@ -59,3 +59,9 @@
 	letter-spacing: -0.6px;
 	color: #868e96;
 }
+
+.member_id {
+	background-color: white;
+	border: none;
+	font-size: large;
+}

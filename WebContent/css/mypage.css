@@ -78,3 +78,9 @@
 	border-color: initial;
 	border-image: initial;
 }
+.error_next_box {
+    margin-top: 9px;
+    font-size: 12px;
+    color: red;    
+    display: none;
+}

@@ -1,6 +1,7 @@
 package com.jcpdev.controller.action;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,19 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.jcpdev.dao.ProductDao;
 import com.jcpdev.dto.Product;
 
-public class MainAction implements Action {
+public class ProductListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html");
-
 		ProductDao dao = ProductDao.getInstance();
 
 		List<Product> list = dao.getList();
 
+		request.setAttribute("today", LocalDate.now());
 		request.setAttribute("list", list);
 
 		ActionForward foward = new ActionForward();

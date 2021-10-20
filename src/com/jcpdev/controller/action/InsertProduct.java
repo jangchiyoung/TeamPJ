@@ -12,7 +12,7 @@ import com.jcpdev.dto.Product;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-public class ProductAdd implements Action {
+public class InsertProduct implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)

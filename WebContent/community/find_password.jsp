@@ -27,9 +27,9 @@
 				<div class="login_line"></div>
 				<form action="findPassword_complete.do" method="post">
 					<div class="input_section">
-						<input class="input" type="text" id="id" name="id" placeholder="아이디">
-						<input class="input" type="email" id="email" name="email" placeholder="본인 이메일(주소)">
-						<input class="input" type="text" id="phone" name="tel" placeholder="본인 휴대폰번호">
+						<input class="input" type="text" id="id" name="member_id" placeholder="아이디">
+						<input class="input" type="email" id="email" name="member_email" placeholder="본인 이메일(주소)">
+						<input class="input" type="text" id="phone" name="member_tel" placeholder="본인 휴대폰번호">
 					</div>
 					<div>
 						<input class="button input" type="submit" value="확인">

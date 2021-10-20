@@ -25,9 +25,9 @@
 				<div class="login_line"></div>
 				<form action="findId_complete.do" method="post">
 					<div class="input_section">
-						<input class="input" type="text" id="name" name="name" placeholder="이름">
-						<input class="input" type="email" id="email" name="email" placeholder="이메일(주소)">
-						<input class="input" type="text" id="phone" name="tel" placeholder="전화번호">
+						<input class="input" type="text" id="name" name="member_name" placeholder="이름">
+						<input class="input" type="email" id="email" name="member_email" placeholder="이메일(주소)">
+						<input class="input" type="text" id="phone" name="member_tel" placeholder="전화번호">
 					</div>
 					<div>
 						<input class="button input" type="submit" value="확인">

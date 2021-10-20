@@ -26,17 +26,17 @@
       </form>
     <div class="collapse navbar-collapse ">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-gr">
-        <c:if test="${sessionScope.user_name == null}">
+        <c:if test="${sessionScope.user_id == null}">
         <li class="nav-item">
           <a class="btn btn-outline-success" href="login.do">로그인</a>
           <a class="btn btn-outline-success" href="join.do">회원가입</a>
         </li>
         </c:if>
-        <c:if test="${sessionScope.user_name != null}">
+        <c:if test="${sessionScope.user_id != null}">
         <li class="nav-item">
-         	<img class="img_profile" src="./img/messge.png" onclick="location.href='maillist.do'">
+         	<img class="img_profile" src="./img/messge.png" onclick="location.href='mailSend.do'">
          	<div class="chat_cnt">22</div>
-         	<img class="img_profile" src="./img/logo.png" onclick="location.href='mypage.do'">
+         	<img class="img_profile" src="/img/${user_img }" onclick="location.href='mypage.do'">
        		<a class="btn btn-outline-success" href="mypage.do">${user_name} 님</a>
           <a class="btn btn-outline-success" href="logout.do">로그아웃</a>
         </li>

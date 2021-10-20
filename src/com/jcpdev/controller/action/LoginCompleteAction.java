@@ -1,11 +1,8 @@
 package com.jcpdev.controller.action;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -13,32 +10,24 @@ import javax.servlet.http.HttpSession;
 import com.jcpdev.dao.MemberDao;
 import com.jcpdev.dto.Member;
 
-public class MypageAction implements Action {
+public class LoginCompleteAction implements Action {
 
-	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html");
-		
+			throws javax.servlet.ServletException, java.io.IOException {
+
+		// 테이블 insert
 		HttpSession session = request.getSession();
-		String id = (String) session.getAttribute("user_id");
-		System.out.println(id);
-		if(session.getAttribute("readIdx") ==null){
-			StringBuilder readIdx=new StringBuilder("/");
-			session.setAttribute("readIdx", readIdx);
-		}
-		
+		request.setCharacterEncoding("UTF-8");
+		String id = (String) session.getAttribute("member_id");
+
 		MemberDao dao = MemberDao.getInstance();
+
 		Member user = dao.getInfo(id);
-		
 		request.setAttribute("member", user);
-		
+
 		ActionForward foward = new ActionForward();
 		foward.isRedirect = false;
-		foward.url="/view/mypage.jsp";
+		foward.url = "community/sign_complete.jsp";
 		return foward;
-	}
-
+	};
 }

@@ -17,6 +17,7 @@ public class MypageUpdateAction implements Action {
 			throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
+		MemberDao dao = MemberDao.getInstance();
 		
 		HttpSession session = request.getSession();
 		request.setCharacterEncoding("UTF-8");
@@ -27,15 +28,17 @@ public class MypageUpdateAction implements Action {
 		String member_email =request.getParameter("email");
 		String member_address =request.getParameter("address");
 		String member_img1 =request.getParameter("img1");
-		System.out.println("아이디"+member_id);
-		System.out.println("비밀번호"+member_password);
-		System.out.println("전화번호"+member_tel);
-		System.out.println("이메일"+member_email);
-		System.out.println("이미지"+member_img1);
-		if(session.getAttribute("readIdx") ==null){
-			StringBuilder readIdx=new StringBuilder("/");
+		
+		if (member_img1.equals("")) {
+			member_img1 = dao.getInfo(member_id).getMember_img1();
+		}
+		System.out.println(member_img1);
+
+		if (session.getAttribute("readIdx") == null) {
+			StringBuilder readIdx = new StringBuilder("/");
 			session.setAttribute("readIdx", readIdx);
 		}
+		
 		Member dto = new Member();
 		dto.setMember_id(member_id);
 		dto.setMember_password(member_password);
@@ -44,8 +47,10 @@ public class MypageUpdateAction implements Action {
 		dto.setMember_email(member_email);
 		dto.setMember_address(member_address);
 		dto.setMember_img1(member_img1);
-		MemberDao dao = MemberDao.getInstance();
 		dao.update_myprofile(dto);
+		
+		session.setAttribute("user_img", dto.getMember_img1());
+		session.setAttribute("user_name", dto.getMember_name());
 		
 		ActionForward foward = new ActionForward();
 		foward.isRedirect = false;

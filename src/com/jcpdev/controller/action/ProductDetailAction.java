@@ -7,23 +7,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.jcpdev.dao.MemberDao;
 import com.jcpdev.dao.ProductDao;
+import com.jcpdev.dto.Member;
 import com.jcpdev.dto.Product;
 
-public class DetailAction implements Action {
+public class ProductDetailAction implements Action {
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		HttpSession session = request.getSession();
 		int idx = Integer.parseInt(request.getParameter("pno"));
-//		int pageNo = Integer.parseInt(request.getParameter("page"));
-		
-		
-		
-		
+
 		ProductDao dao = ProductDao.getInstance();
+		MemberDao mdao = MemberDao.getInstance();
+		
 		if (session.getAttribute("readIdx") != null) {
 			StringBuilder readIdx = (StringBuilder) session.getAttribute("readIdx");
 			boolean status = readIdx.toString().contains("/" + idx + "/");
@@ -37,9 +36,10 @@ public class DetailAction implements Action {
 		}
 
 		Product bean = dao.getOne(idx);
-
-//		request.setAttribute("page", pageNo);
+		Member mbean = mdao.getInfo(bean.getProduct_seller());
 		request.setAttribute("bean", bean);
+		request.setAttribute("member", mbean);
+		
 		ActionForward foward = new ActionForward();
 		foward.isRedirect = false;
 		foward.url = "/view/detail.jsp";

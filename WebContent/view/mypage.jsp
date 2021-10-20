@@ -1,29 +1,29 @@
-<%@include file="../include/header.jsp"%>
+<%@include file="/include/header.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<link rel="stylesheet" type="text/css" href="./css/header.css">
-<link rel="stylesheet" type="text/css" href="./css/footer.css">
-<link rel="stylesheet" type="text/css" href="./css/mypage.css">
+<link rel="stylesheet" type="text/css" href="css/header.css">
+<link rel="stylesheet" type="text/css" href="css/footer.css">
+<link rel="stylesheet" type="text/css" href="css/mypage.css">
 
 <div class="mypage-main-section">
 	<div class="mypage-section1">
 <div class="container">
     <div class="main-body">
-         <form action="update_mypage.do">
+         <form action="update_mypage.do" method="post">
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
                     <div class="filebox">
-	                    <img src="/img/${user_img1 }" class="rounded-circle" width="150" height="150" id="preview-image">
+	                    <img src="/img/${member.member_img1 }" name="img1" class="rounded-circle" width="150" height="150" id="preview-image">
 	                    <label for="img1">변경</label>
-						<input type="file" id="img1" name="img1" value="${user_img1 }">
+						<input type="file" id="img1" name="img1" value="${member.member_img1 }">
 					</div>
                     <div class="mt-3">
-                      <h4>${user_name}</h4>
-                      <p class="text-muted font-size-sm">${user_address}</p>
+                      <h4>${member.member_name}</h4>
+                      <p class="text-muted font-size-sm">${member.member_address}</p>
                     </div>
                   </div>
                 </div>
@@ -47,7 +47,7 @@
                       <h6 class="mb-0">이름</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <input type="text" class="form-control" id="name" name="name" value="${user_name }">
+                      <input type="text" class="form-control" id="name" name="name" value="${member.member_name }">
                     </div>
                   </div>
                   <hr>     
@@ -56,8 +56,8 @@
                       <h6 class="mb-0">아이디</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <input type="text" disabled="disabled" class="form-control" value="${user_id }">
-                      <input type="hidden" name="id" value="${user_id }">
+                      <input type="text" disabled="disabled" class="form-control" value="${member.member_id }">
+                      <input type="hidden" name="id" value="${member.member_id }">
                     </div>
                   </div>
                   <hr>
@@ -66,7 +66,8 @@
                       <h6 class="mb-0">비밀번호</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <input type="password"class="form-control">
+                      <input type="password"class="form-control" id="pswd1" name="password" required="required">
+                      <span class="error_next_box"></span>
                     </div>
                   </div> 
                   <hr>
@@ -75,7 +76,8 @@
                       <h6 class="mb-0">비밀번호 확인</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <input type="password" class="form-control" id="password" name="password">
+                      <input type="password" class="form-control" id="pswd2" required="required">
+                      <span class="error_next_box"></span>
                     </div>
                   </div>
                   <hr>
@@ -84,7 +86,7 @@
                       <h6 class="mb-0">전화번호</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <input type="text" class="form-control" id="tel" name="tel" value="${user_tel }">
+                      <input type="text" class="form-control" id="tel" name="tel" value="${member.member_tel }">
                     </div>
                   </div>
                   <hr>
@@ -93,7 +95,7 @@
                       <h6 class="mb-0">메일</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                   		 <input type="text" class="form-control" id="email" name="email" value="${user_email }">
+                   		 <input type="text" class="form-control" id="email" name="email" value="${member.member_email }">
                     </div>
                   </div>
                     <hr>
@@ -102,7 +104,7 @@
                       <h6 class="mb-0">주소</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      	 <input type="text" class="form-control" id="address" name="address" value="${user_address }">
+                      	 <input type="text" class="form-control" id="address" name="address" value="${member.member_address }">
                     </div>
                   </div>
                   <hr>
@@ -120,6 +122,7 @@
     </div>
 	</div>
 </div>
+<script src="js/main.js"  type="text/javascript"></script>
 <script type="text/javascript">
 function readImage(input) {
     if(input.files && input.files[0]) {
@@ -136,4 +139,4 @@ inputImage.addEventListener("change", e => {
     readImage(e.target)
 })
 </script>
-<%@include file="../include/footer.jsp"%>
+<%@include file="/include/footer.jsp"%>

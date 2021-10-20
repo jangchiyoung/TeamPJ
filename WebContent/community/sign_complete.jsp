@@ -9,18 +9,6 @@
 <link rel="stylesheet" href="./css/find.css?v=3">
 </head>
 <body>
-<%
-	Object name = session.getAttribute("user_name");
-	Object id = session.getAttribute("user_id");
-	Object tel = session.getAttribute("user_tel");
-	Object email = session.getAttribute("user_email");
-	Object address = session.getAttribute("user_address");
-	String user_id = (String)id;
-	String user_name = (String)name;
-	String user_tel = (String)tel;
-	String user_email = (String)email;
-	String user_address = (String)address;
-%>
 	<div id="login">
 		<div id="body" style="padding-top: 19.5px;">
 			<div class="container" style="padding-top: 28px;">
@@ -34,23 +22,23 @@
 					<table>
 					<tr> 
 					<td>아이디 : </td>
-					<td>${user_id }</td>
+					<td>${member.member_id }</td>
 					</tr>
 					<tr> 
 					<td>이름 : </td>
-					<td>${user_name }</td>
+					<td>${member.member_name }</td>
 					</tr>
 					<tr> 
 					<td>전화번호 : </td>
-					<td>${user_tel }</td>
+					<td>${member.member_tel }</td>
 					</tr>
 					<tr> 
 					<td>이메일 : </td>
-					<td>${user_email }</td>
+					<td>${member.member_email }</td>
 					</tr>
 					<tr> 
 					<td>주소 : </td>
-					<td>${user_address }</td>
+					<td>${member.member_address }</td>
 					</tr>
 					</table>
 					
