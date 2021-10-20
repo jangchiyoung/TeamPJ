@@ -1,5 +1,5 @@
 function TestFuc() {
-	alert('클릭');
+	
 }
 // 변수 설정
 const id = document.querySelector('#id');

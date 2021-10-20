@@ -8,8 +8,8 @@
 	<!-- 회원 가입 -->
 	<insert id="insert" parameterType="Member" useGeneratedKeys="true"
 				keyColumn="idx" keyProperty="idx">
-		insert into member(member_id,member_password,member_name,member_tel,member_email,member_address)
-		values (#{member_id},#{member_password},#{member_name},#{member_tel},#{member_email},#{member_address})
+		insert into member(member_id,member_password,member_name,member_img1,member_tel,member_email,member_address)
+		values (#{member_id},#{member_password},#{member_name},#{member_img1},#{member_tel},#{member_email},#{member_address})
 	</insert>
 	<!-- 로그인 체크 -->
 	<select id="loginCheck" parameterType="java.util.Map" resultType="Member">
@@ -54,8 +54,8 @@
 		where member_id = #{member_id}
 	</update>
 	
-	<select id="idCheck"  resultType="Member">
-		select * from member where member_id = #{id}
+	<select id="idCheck" parameterType="String" resultType="int">
+		select count(member_id) from member where member_id = #{member_id}
 	</select>
 	
 </mapper>

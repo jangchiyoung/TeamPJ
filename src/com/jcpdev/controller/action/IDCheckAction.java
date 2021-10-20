@@ -20,7 +20,7 @@ public class IDCheckAction implements Action {
 		response.setContentType("text/html");
 		
 		HttpSession session = request.getSession();
-		String id=request.getParameter("id");
+		String id=request.getParameter("member_id");
 		System.out.println(id);
 		
 		if(session.getAttribute("readIdx") ==null){
@@ -29,14 +29,12 @@ public class IDCheckAction implements Action {
 		}
 		
 		MemberDao dao = MemberDao.getInstance();
-		Member user_check = dao.idCheck(id);
-		System.out.println(user_check);
-		if(user_check ==null){
+		int count = dao.idCheck(id);
+		System.out.println(count);
+		if(count ==1){
 				request.setAttribute("message", "이미 사용중인 아이디입니다.");
-				request.setAttribute("url", "join.do");
 			}else {
 				request.setAttribute("message", "사용가능한 아이디입니다.");
-				request.setAttribute("url", "join.do");   //변경
 			}
 		
 		ActionForward foward = new ActionForward();

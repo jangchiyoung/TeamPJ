@@ -28,6 +28,7 @@ import com.jcpdev.controller.action.InsertProduct;
 import com.jcpdev.controller.action.FindIdAtion;
 import com.jcpdev.controller.action.FindPasswordAtion;
 import com.jcpdev.controller.action.GetMySellList;
+import com.jcpdev.controller.action.IDCheckAction;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -133,6 +134,9 @@ public class FrontController extends HttpServlet {
 			forward = action.execute(request, response); 
 		}else if (spath.equals("/DeleteProduct.do")) {
 			Action action = new DeleteProduct();
+			forward = action.execute(request, response);
+		}else if (spath.equals("/IdCheck.do")) {
+			Action action = new IDCheckAction();
 			forward = action.execute(request, response);
 		}
 		

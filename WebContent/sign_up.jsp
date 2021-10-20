@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="css/login.css?v=3">
 <link rel="stylesheet" href="css/find.css?v=3">
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script
+     src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js";></script>
 </head>
 <body>
 	<div id="login">
@@ -44,7 +46,7 @@
 						<div>
 						<input class="input2" type="button" value="주소 검색" onclick="findAddr()"><br>
 						<input class="input" type="text" name="member_address" id="userAddress" placeholder="주소를 입력" required="required"/>  <br>
-						<input class="input" type="text" name="member_address" class="form-control" placeholder="상세 주소를 입력하세요" required="required"/> <br>
+						<br>
 						</div>
 						<span class="error_next_box"></span>
 						<input class="button1 input" type="submit" value="회원가입하기">
@@ -90,7 +92,6 @@ function findAddr() {
 		}).open();
 	});
 }
-
 </script>
 </body>
 </html>

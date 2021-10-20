@@ -18,7 +18,7 @@ public class LoginCompleteAction implements Action {
 		// 테이블 insert
 		HttpSession session = request.getSession();
 		request.setCharacterEncoding("UTF-8");
-		String id = (String) session.getAttribute("member_id");
+		String id = (String) session.getAttribute("user_id");
 
 		MemberDao dao = MemberDao.getInstance();
 

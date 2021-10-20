@@ -53,11 +53,11 @@ public class MemberDao {
 		return dto;
 	}
 
-	public Member idCheck(String id) {
+	public int idCheck(String id) {
 		SqlSession mapper = sqlFactory.openSession();
-		Member dto = mapper.selectOne("Member.idCheck", id);
+		int count = mapper.selectOne("Member.idCheck", id);
 		mapper.close();
-		return dto;
+		return count;
 	}
 
 	public Member findId(Map<String, String> map) {
