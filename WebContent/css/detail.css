@@ -44,6 +44,16 @@
 	margin-bottom: 10em;
 }
 
+.detail-message {
+	text-align: right;
+	display: flex;
+	flex-flow: row-reverse;
+}
+
+.detail-message p {
+	margin-left: 1em;
+}
+
 .detail-subject {
 	font-weight: bold;
 }
@@ -59,7 +69,11 @@
 	letter-spacing: -0.6px;
 	color: #868e96;
 }
-
+.product_content_pre {
+	white-space: pre-wrap;
+	word-break: break-all;
+	overflow: auto;
+}
 .member_id {
 	background-color: white;
 	border: none;

@@ -15,7 +15,7 @@ import com.jcpdev.dao.ProductDao;
 import com.jcpdev.dto.Member;
 import com.jcpdev.dto.Product;
 
-public class GetMySellList implements Action {
+public class GetMyList implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
@@ -30,7 +30,7 @@ public class GetMySellList implements Action {
 		MemberDao mdao = MemberDao.getInstance();
 		
 		Member user =  mdao.getInfo(id);
-		List<Product> list = dao.getMySellList(user);
+		List<Product> list = dao.getMyList(user);
 
 		request.setAttribute("list", list);
 

@@ -26,7 +26,7 @@ public class MyProfileAction implements Action {
 		ProductDao dao = ProductDao.getInstance();
 		
 		Member user = mdao.getInfo(member_id);
-		List<Product> list = dao.getMySellList(user);
+		List<Product> list = dao.getMySoldList(user);
 		
 		int count= dao.getMySellCount(member_id);
 		

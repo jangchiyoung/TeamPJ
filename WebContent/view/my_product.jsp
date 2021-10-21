@@ -34,7 +34,7 @@
 											width="150" height="150" id="preview-image">
 									</div>
 									<div class="mt-3">
-										<h4>${member_name}</h4>
+										<h4>${user_name}</h4>
 									</div>
 								</div>
 							</div>

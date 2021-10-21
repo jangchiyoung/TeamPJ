@@ -29,11 +29,27 @@ public class ProductDao {
 		mapper.close();
 		return list;
 	}
-
-	public List<Product> getMySellList(Member user) { // 판매내역
+	
+	public List<Product> getSearchList(String content) { // 상품 검색 리스트
 		List<Product> list = null;
 		SqlSession mapper = factory.openSession();
-		list = mapper.selectList("product.getMySellList", user);
+		list = mapper.selectList("product.getSearchList", content);
+		mapper.close();
+		return list;
+	}
+	
+	public List<Product> getMyList(Member vo) { // 판매중
+		List<Product> list = null;
+		SqlSession mapper = factory.openSession();
+		list = mapper.selectList("product.getMyList", vo);
+		mapper.close();
+		return list;
+	}
+	
+	public List<Product> getMySoldList(Member vo) { // 판매내역
+		List<Product> list = null;
+		SqlSession mapper = factory.openSession();
+		list = mapper.selectList("product.getMySoldList", vo);
 		mapper.close();
 		return list;
 	}
@@ -73,7 +89,14 @@ public class ProductDao {
 		mapper.commit();
 		mapper.close();
 	}
-
+	
+	public void update_product_done(Product dto) { // 상품상태 변경 (거래완료)
+		SqlSession mapper = factory.openSession();
+		mapper.insert("product.update_product_done", dto);
+		mapper.commit();
+		mapper.close();
+	}
+	
 	public void update_like(int product_no) { // 즐겨찾기 등록
 		SqlSession mapper = factory.openSession();
 		mapper.insert("product.update_like", product_no);

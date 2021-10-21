@@ -1,29 +1,30 @@
-<%@include file="/include/header.jsp"%>
+<%@include file="../include/header.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<link rel="stylesheet" type="text/css" href="css/header.css">
-<link rel="stylesheet" type="text/css" href="css/footer.css">
-<link rel="stylesheet" type="text/css" href="css/mypage.css">
+<link rel="stylesheet" type="text/css" href="./css/header.css">
+<link rel="stylesheet" type="text/css" href="./css/footer.css">
+<link rel="stylesheet" type="text/css" href="./css/mypage.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <div class="mypage-main-section">
 	<div class="mypage-section1">
 <div class="container">
     <div class="main-body">
-         <form action="update_mypage.do" method="post">
+    
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
+                     <form action="update_mypage.do" enctype="multipart/form-data" method="post"  id="frm">
                     <div class="filebox">
-	                    <img src="/img/${member.member_img1 }" name="img1" class="rounded-circle" width="150" height="150" id="preview-image">
-	                    <label for="img1">변경</label>
-						<input type="file" id="img1" name="img1" value="${member.member_img1 }">
+	                    <img src="/img/${member.member_img1 }" class="rounded-circle" width="150" height="150" id="preview-image">
+	                    <label for="input-image">변경</label>
+						<input type="file" id="input-image" name="img1">
 					</div>
                     <div class="mt-3">
                       <h4>${member.member_name}</h4>
-                      <p class="text-muted font-size-sm">${member.member_address}</p>
                     </div>
                   </div>
                 </div>
@@ -35,7 +36,7 @@
                     <a class="list-group-item" href="purchaselist.do"><i class="bi bi-bag-fill" style="margin-right: 10px;"></i>구매 내역<span class="badge badge-success">4</span></a>
                     <a class="list-group-item" href="saleslist.do"> <i class="bi bi-journal-text" style="margin-right: 10px;"></i>판매 내역<span class="badge badge-success">12</span></a>
                     <a class="list-group-item" href="favoriteslist.do"><i class="bi bi-heart-fill" style="margin-right: 10px;"></i>관심 목록<span class="badge badge-success">22</span></a>
-                    <a class="list-group-item" href="maillist.do"><i class="bi bi-mailbox" style="margin-right: 10px;"></i>쪽지 함<span class="badge badge-success">22</span></a>
+                    <a class="list-group-item" href="mail.do"><i class="bi bi-mailbox" style="margin-right: 10px;"></i>쪽지 함<span class="badge badge-success">22</span></a>
                   </div>
               </div>
             </div>
@@ -47,7 +48,7 @@
                       <h6 class="mb-0">이름</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <input type="text" class="form-control" id="name" name="name" value="${member.member_name }">
+                      <input type="text" name="name" id="name" class="form-control" value="${member.member_name }">
                     </div>
                   </div>
                   <hr>     
@@ -56,8 +57,8 @@
                       <h6 class="mb-0">아이디</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <input type="text" disabled="disabled" class="form-control" value="${member.member_id }">
-                      <input type="hidden" name="id" value="${member.member_id }">
+                      <input type="text" disabled="disabled" class="form-control" value="${member.member_id }" >
+                    <input type="hidden" name="id" value="${member.member_id }">
                     </div>
                   </div>
                   <hr>
@@ -66,8 +67,7 @@
                       <h6 class="mb-0">비밀번호</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <input type="password"class="form-control" id="pswd1" name="password" required="required">
-                      <span class="error_next_box"></span>
+                      <input type="password"class="form-control" name="password"  id="pswd1" >
                     </div>
                   </div> 
                   <hr>
@@ -76,8 +76,7 @@
                       <h6 class="mb-0">비밀번호 확인</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <input type="password" class="form-control" id="pswd2" required="required">
-                      <span class="error_next_box"></span>
+                      <input type="password" class="form-control"  id="pswd2"  >
                     </div>
                   </div>
                   <hr>
@@ -86,7 +85,7 @@
                       <h6 class="mb-0">전화번호</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <input type="text" class="form-control" id="tel" name="tel" value="${member.member_tel }">
+                      <input type="text" class="form-control" value="${member.member_tel }" name="tel" id="tel" >
                     </div>
                   </div>
                   <hr>
@@ -95,7 +94,7 @@
                       <h6 class="mb-0">메일</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                   		 <input type="text" class="form-control" id="email" name="email" value="${member.member_email }">
+                   		 <input type="text" class="form-control" value="${member.member_email }" name="email" id="email" >
                     </div>
                   </div>
                     <hr>
@@ -104,26 +103,52 @@
                       <h6 class="mb-0">주소</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      	 <input type="text" class="form-control" id="address" name="address" value="${member.member_address }">
+                      	 <input type="text" class="form-control" value="${member.member_address  }" name="address" id="address" >
                     </div>
                   </div>
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                      <input type="submit" value="수정" class="btn btn-outline-success btn-block">
+                      <button class="btn btn-outline-success btn-block" type="button" id="submit-btn">수정</button>
+                     </form>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          </form>
+
         </div>
     </div>
 	</div>
 </div>
-<script src="js/main.js"  type="text/javascript"></script>
 <script type="text/javascript">
+window.onload = function(){
+	document.getElementById('submit-btn').onclick=function(){
+		var emailRule = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i; //이메일 정규식
+		
+		if(document.getElementById('pswd1').value != document.getElementById('pswd2').value){
+			alert('비밀번호를 확인해주세요!');				
+		}else if((document.getElementById('pswd1').value == "")){
+			alert('비밀번호를 확인해주세요!');	
+		}else if((document.getElementById('pswd1').value.length<8)){
+			alert('비밀번호 길이는 8자 이상입니다.');	
+		}else if (document.getElementById('name').value == "") {
+			alert('이름을 확인해주세요!');
+		} else if (document.getElementById('tel').value == "") {
+			alert('전화번호를 확인해주세요!');
+		}else if (document.getElementById('email').value == "") {
+			alert('이메일을 확인해주세요!');
+		}else if(!emailRule.test($("input[id='email']").val())) {            
+			alert('이메일을 확인해주세요!(정규식)');
+		} else if (document.getElementById('address').value == "") {
+			alert('주소를 확인해주세요!');
+		} else {
+		document.getElementById('frm').submit();
+		return false
+		}
+	}		
+};
 function readImage(input) {
     if(input.files && input.files[0]) {
         const reader = new FileReader()
@@ -134,9 +159,9 @@ function readImage(input) {
         reader.readAsDataURL(input.files[0])
     }
 } 
-const inputImage = document.getElementById("img1")
+const inputImage = document.getElementById("input-image")
 inputImage.addEventListener("change", e => {
     readImage(e.target)
 })
 </script>
-<%@include file="/include/footer.jsp"%>
+<%@include file="../include/footer.jsp"%>

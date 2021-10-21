@@ -1,5 +1,4 @@
 package com.jcpdev.controller.action;
-
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -17,11 +16,11 @@ public class InsertProduct implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
+		// 상품등록
 		request.setCharacterEncoding("UTF-8");
 
-		String path = "C:\\img"; // 프로젝트 폴더와 관련 없는 경로일때 url 매핑을 server.xml에 설정한다.
-//	      String path = request.getServletContext().getRealPath("/image");    //프로젝트 폴더의 하위 경로일때
+		String path = "C:\\img";
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("user_id");
 		System.out.println("id : " +id);
@@ -39,10 +38,9 @@ public class InsertProduct implements Action {
 			String filename3 = multi_request.getFilesystemName("img3");
 			
 			ProductDao pdao = ProductDao.getInstance();
-			Product vo = new Product(0,product_category,product_name, product_content, product_price, filename1, filename2, filename3,id, null, null, null, 0);
+			Product vo = new Product(0,product_category,product_name, product_content, product_price, filename1, filename2, filename3,id, null, null,0, null,null,0);
 			System.out.println(vo);
 			pdao.insert(vo);
-			System.out.println("gallery insert 성공!");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

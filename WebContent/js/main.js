@@ -1,9 +1,6 @@
-function TestFuc() {
-	
-}
 // 변수 설정
-const id = document.querySelector('#id');
 
+const id = document.querySelector('#id');
 const pw1 = document.querySelector('#pswd1');
 
 const pw2 = document.querySelector('#pswd2');
@@ -14,9 +11,11 @@ const tel = document.querySelector('#tel');
 
 const email = document.querySelector('#email');
 
-const adress = document.querySelector('#adress')
+const adress = document.querySelector('#userAddress')
 
 const error = document.querySelectorAll('.error_next_box');
+
+
 
 // 함수 호출
 id.addEventListener("blur", checkId);
@@ -30,21 +29,48 @@ email.addEventListener("blur", isEmailCorrect);
 //함수
 
 /*아이디*/
+
 function checkId() {
-	var idPattern = /[a-zA-Z0-9_-]{5,20}/;
-	if (id.value === "") {
-		error[0].innerHTML = "필수 정보입니다.";
-		error[0].style.color = "red";
-		error[0].style.display = "block";
-	} else if (!idPattern.test(id.value)) {
-		error[0].innerHTML = "5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.";
-		error[0].style.color = "red";
-		error[0].style.display = "block";
-	} else {
-		error[0].innerHTML = "적합한 아이디입니다.";
-		error[0].style.color = "green";
-		error[0].style.display = "block";
-	}
+	let check = 0;
+	let tempInt = 0;
+	$.ajax({
+		type: 'post', //post 방식으로 전송
+		url: './community/IdCheck_Ajax.jsp', //데이터를 주고받을 파일 주소
+		data: { "id": id.value }, //위의 변수에 담긴 데이터를 전송해준다.
+		dataType: "text", //html 파일 형식으로 값을 담아온다.
+		success: function(data) { //파일 주고받기가 성공했을 경우. data 변수 안에 값을 담아온다.
+			let temp = data.trim();
+			tempInt = parseInt(temp);
+		}
+	});
+
+	setTimeout(function() {
+
+		if (tempInt == 32) {	//임의의 값 32
+			check = 1;
+		}
+
+		var idPattern = /[a-zA-Z0-9_-]{5,20}/;
+		if (id.value === "") {
+			error[0].innerHTML = "필수 정보입니다.";
+			error[0].style.color = "red";
+			error[0].style.display = "block";
+		} else if (!idPattern.test(id.value)) {
+			error[0].innerHTML = "5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.";
+			error[0].style.color = "red";
+			error[0].style.display = "block";
+		} else if (check == 1) {
+			error[0].innerHTML = "사용중인 아이디 입니다.";
+			error[0].style.color = "red";
+			error[0].style.display = "block";
+		} else {
+			error[0].innerHTML = "적합한 아이디입니다.";
+			error[0].style.color = "green";
+			error[0].style.display = "block";
+		}
+
+	}, 500);
+
 }
 /*비밀번호*/
 function checkPw() {
@@ -135,4 +161,3 @@ function isEmailCorrect() {
 	}
 }
 /*주소*/
-

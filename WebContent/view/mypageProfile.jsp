@@ -16,7 +16,7 @@
 		<div class="breadcrumbs" id="breadcrumbs">
 			<ul>
 				<li><a href="index.do">HOME</a></li>
-				<li>&gt; 나의메뉴</li>
+				<li>&gt; ${user.member_name} 님 프로필</li>
 			</ul>
 		</div>
 		<div class="main_area">
@@ -34,21 +34,11 @@
 							</div>
 							<div class="my_profile_follow_box">
 								<div class="my_profile_follow_info">
-									<div class="follow_info_box"
-										onclick="location.href='mailSend.do'">
-										<img
-											src="https://ccimage.hellomarket.com/web/2019/member/ico_hellotlak_14x14_x2.png"
-											alt=""><span>message</span>
-									</div>
 								</div>
 							</div>
 							<div class="my_profile_pro_review">
 								<div class="my_profile_pro_review_box">
 									<a href=""><span>상품</span><span>${count }</span></a>
-								</div>
-								<div class="my_profile_pro_review_box">
-									<a href=""><span>관심하트</span><span style="color: red;">♥</span>
-										<span></span> </a>
 								</div>
 							</div>
 						</div>
@@ -59,8 +49,6 @@
 							<ul>
 								<li class="active"><a class="active"
 									href="">판매상품</a></li>
-								<li class="">
-								<a class="" href="">구매상품</a></li>
 							</ul>
 						</div>
 						<div class="tab_content">

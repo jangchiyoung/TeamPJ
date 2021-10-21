@@ -13,13 +13,10 @@
 MailDao mail_dao = MailDao.getInstance();
 MemberDao member_dao = MemberDao.getInstance();
 ProductDao product_dao = ProductDao.getInstance();
-
-
 String room = request.getParameter("room");
-String order_id = request.getParameter("order_id");   
-int p_no = Integer.parseInt(request.getParameter("p_no"));   
+String order_id = request.getParameter("order_id");	
+int p_no = Integer.parseInt(request.getParameter("p_no"));	
 String id = (String) session.getAttribute("user_id");
-
 Member member = member_dao.getInfo(order_id);
 Product product = product_dao.getOne(p_no);
  
@@ -27,46 +24,54 @@ List<Mail> list = mail_dao.getMailList(room);
 %>
  
 <div class="chat_header">
-   <div class="image_box">
-      <div class="image_table">
-         <img src="/img/<%=member.getMember_img1()%>" alt="<%=member.getMember_name() %> 프로필 이미지">
-      </div>
-   </div>
-   <div class="info">
-      <div>
-         <span id="message"><%=member.getMember_name()%></span><span class="size_limite"><%=product.getProduct_name()%> </span>
-      </div>
-   </div>
+	<div class="image_box">
+		<div class="image_table">
+			<img src="/img/<%=member.getMember_img1()%>" alt="<%=member.getMember_name() %> 프로필 이미지">
+		</div>
+	</div>
+	<div class="info">
+		<div>
+			<span id="message"><%=member.getMember_name()%></span><span class="size_limite"><%=product.getProduct_name()%> </span>
+		</div>
+	</div>
+		<div class="declaration">
+			<div>
+			<%if(product.getProduct_seller().equals(id)){ %>
+				<p class="btn btn-success" style="font-size: 0.7em;"><a href="MailDone.do?room=<%=room%>&p_no=<%=product.getProduct_no()%>&buyer=<%=order_id%>">거래 완료</a></p>
+			<%} %>
+				<p class="btn btn-danger" style="font-size: 0.7em;"><a href="MailDelete.do?room=<%=room%>">채팅방 나가기</a></p>
+			</div>
+		</div>
 </div>
 <div class="chat_description" style="bottom: 49px">
-   <%
-   for (Mail m : list) {
-      if (id.equals(m.getMail_sendid())) {
-   %>
-   <div class="right_div">
-      <p class="mail_id_content"><%=m.getMail_sendid()%></p>
-      <p><%=m.getMail_content()%></p>
-      <p class="mail_date_content">
-         <td><fmt:formatDate value="<%=m.getMail_date()%>"
-               pattern="yyyy-MM-dd" /></td>
-      </p>
-   </div>
+	<%
+	for (Mail m : list) {
+		if (id.equals(m.getMail_sendid())) {
+	%>
+	<div class="right_div">
+		<p class="mail_id_content"><%=m.getMail_sendid()%></p>
+		<p><%=m.getMail_content()%></p>
+		<p class="mail_date_content">
+			<td><fmt:formatDate value="<%=m.getMail_date()%>"
+					pattern="yyyy-MM-dd" /></td>
+		</p>
+	</div>
 
-   <%
-   } else {
-   %>
-   <div class="left_div">
-      <p class="mail_id_content"><%=m.getMail_sendid()%></p>
-      <p><%=m.getMail_content()%></p>
-      <p class="mail_date_content">
-         <td><fmt:formatDate value="<%=m.getMail_date()%>"
-               pattern="yyyy-MM-dd" /></td>
-      </p>
-   </div>
-   <%
-   }
-   %>
-   <%
-   }
-   %>
+	<%
+	} else {
+	%>
+	<div class="left_div">
+		<p class="mail_id_content"><%=m.getMail_sendid()%></p>
+		<p><%=m.getMail_content()%></p>
+		<p class="mail_date_content">
+			<td><fmt:formatDate value="<%=m.getMail_date()%>"
+					pattern="yyyy-MM-dd" /></td>
+		</p>
+	</div>
+	<%
+	}
+	%>
+	<%
+	}
+	%>
 </div>
