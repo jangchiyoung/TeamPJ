@@ -83,7 +83,7 @@
 									<tr class="collapse" id="product_${index.count }">
 										<td colspan="4"><img src="/img/${item.product_img1 }" class="product-detail-img"> <pre class="product_content_pre">${item.product_content}</pre>
 											<div class="product-detail-btn">
-												<a href="" class="btn btn-success btn-block">수정</a> 
+												<a href="GetProduct.do?pno=${item.product_no }" class="btn btn-success btn-block">수정</a> 
 												<a class="btn btn-danger btn-block" href="DeleteProduct.do?pno=${item.product_no }">삭제</a>
 											</div></td>
 									</tr>

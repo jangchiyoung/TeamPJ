@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.jcpdev.controller.action.Action;
 import com.jcpdev.controller.action.ActionForward;
 import com.jcpdev.controller.action.DeleteProduct;
+import com.jcpdev.controller.action.FavoritesDeleteAction;
 import com.jcpdev.controller.action.FavoritesListAction;
 import com.jcpdev.controller.action.FindIdAction;
 import com.jcpdev.controller.action.FindPasswordAction;
@@ -30,12 +31,14 @@ import com.jcpdev.controller.action.MypageAction;
 import com.jcpdev.controller.action.MypageUpdateAction;
 import com.jcpdev.controller.action.OrderProfileAction;
 import com.jcpdev.controller.action.GetMySoldList;
+import com.jcpdev.controller.action.GetProductAction;
 import com.jcpdev.controller.action.GetMyList;
 import com.jcpdev.controller.action.InsertProduct;
 import com.jcpdev.controller.action.ProductDetailAction;
 import com.jcpdev.controller.action.Product_Like_Action;
 import com.jcpdev.controller.action.SearchAction;
 import com.jcpdev.controller.action.UpdatePasswordAction;
+import com.jcpdev.controller.action.UpdateProduct;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -173,6 +176,15 @@ public class FrontController extends HttpServlet {
 			forward = action.execute(request, response);
 		} else if (spath.equals("/orderProfile.do")) {
 			Action action = new OrderProfileAction();
+			forward = action.execute(request, response);
+		}  else if (spath.equals("/FavoritesDeleteAction.do")) {
+			Action action = new FavoritesDeleteAction();
+			forward = action.execute(request, response);
+		}else if (spath.equals("/GetProduct.do")) {
+			Action action = new GetProductAction();
+			forward = action.execute(request, response);
+		} else if (spath.equals("/UpdateProduct.do")) {
+			Action action = new UpdateProduct();
 			forward = action.execute(request, response);
 		}
 

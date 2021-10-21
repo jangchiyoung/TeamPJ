@@ -57,7 +57,7 @@
                 		<td style="width: 23em;"><p class="product_list_name">${item.product_name}</p></td>
 						<td><fmt:formatNumber value="${item.product_price}" pattern="#,###"/>원</td>
                 		<td>
-                			<a class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                			<a class="btn btn-danger" href="FavoritesDeleteAction.do?pno=${item.product_no }"><i class="bi bi-trash"></i></a>
                 		</td>
                 	</tr>
                 	</c:forEach>
