@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import com.jcpdev.dao.MemberDao;
 import com.jcpdev.dto.Member;
 
-public class FindIdAtion implements Action {
+public class FindIdAction implements Action {
 
 	
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException ,java.io.IOException {

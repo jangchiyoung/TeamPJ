@@ -14,6 +14,7 @@ import com.jcpdev.dao.MemberDao;
 import com.jcpdev.dao.ProductDao;
 import com.jcpdev.dto.Favorites;
 import com.jcpdev.dto.Member;
+import com.jcpdev.dto.NavCnt;
 import com.jcpdev.dto.Product;
 
 public class FavoritesListAction implements Action {
@@ -31,6 +32,7 @@ public class FavoritesListAction implements Action {
 		FavoritesDao dao = FavoritesDao.getInstance();
 		ProductDao pdao = ProductDao.getInstance();
 		MemberDao mdao = MemberDao.getInstance();
+		NavCnt cnt = mdao.navCntUpdate(id);
 
 		List<Favorites> list = dao.getFavListPd(id);
 		List<Product> product_list = new ArrayList<Product>();
@@ -44,6 +46,7 @@ public class FavoritesListAction implements Action {
 
 		}
 
+		request.setAttribute("cnt", cnt);
 		request.setAttribute("list", product_list);
 		request.setAttribute("memlist", member_list);
 		ActionForward foward = new ActionForward();

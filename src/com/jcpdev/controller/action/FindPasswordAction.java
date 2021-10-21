@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import com.jcpdev.dao.MemberDao;
 import com.jcpdev.dto.Member;
 
-public class FindPasswordAtion implements Action {
+public class FindPasswordAction implements Action {
 
 	
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException ,java.io.IOException {

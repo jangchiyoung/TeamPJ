@@ -54,8 +54,6 @@
 					<a class="" href="find_id.do">아이디 찾기</a>
 					<span class="hor_line">|</span>
 					<a class="" href="find_password.do">비밀번호 찾기</a>
-					<span class="hor_line ">|</span>
-					<a class="" href="join.do">회원가입</a>
 				</div>
 				<div>
 					<p>이미 회원이신가요? <a href="./login.do">로그인하기</a> </p>

@@ -1,6 +1,7 @@
 package com.jcpdev.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -67,12 +68,19 @@ public class MailDao {
 		return list;
 	}
 
-	public int countMails(int mail_postid) {
+	public int countMails(String mail_postid) {
 		int cnt = 0;
 		SqlSession mapper = factory.openSession();
-		cnt = mapper.selectOne("MailSpace.countMails");
+		cnt = mapper.selectOne("MailSpace.countMails", mail_postid);
 		mapper.close();
 		return cnt;
+	}
+
+	public void readCheck(Map<String, String> map) { // 메일 읽음처리
+		SqlSession mapper = factory.openSession();
+		mapper.update("MailSpace.readCheck", map);
+		mapper.commit();
+		mapper.close();
 	}
 
 	public void delete(String mail_room) { // 쪽지 삭제

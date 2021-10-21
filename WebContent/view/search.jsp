@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="./css/main.css">
 <link rel="stylesheet" type="text/css" href="./css/mypage.css">
 <link rel="stylesheet" type="text/css" href="./css/search.css">
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <div class="mypage-main-section">
 	<div class="mypage-section1">
@@ -20,9 +21,11 @@
 					<div class="card col-md-4 col-sm-6" onclick="TestFuc()">
 						<img src="/img/${item.product_img1 }" class="card-img-top" alt="...">
 						<div class="card-body">
-							<h5 class="card-title">${item.product_name }</h5>
+							<h5 class="card-title size_limite" >${item.product_name }</h5>
 							<div class="card-text">
-								<span style="font-weight: bold;">${item.product_price }</span><span class="card-span"><i class="bi bi-heart"></i> ${item.product_readcount }</span>
+								<span style="font-weight: bold;">
+								<fmt:formatNumber value="${item.product_price }" pattern="#,###"/>원
+								</span><span class="card-span"><i class="bi bi-heart-fill"></i> ${item.product_like }</span>
 							</div>
 						</div>
 					</div>

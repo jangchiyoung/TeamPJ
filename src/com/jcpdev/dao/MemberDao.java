@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.jcpdev.dto.Member;
+import com.jcpdev.dto.NavCnt;
 import com.jcpdev.mybatis.SqlSessionBean;
 
 public class MemberDao {
@@ -37,6 +38,19 @@ public class MemberDao {
 		return result;
 	}
 
+	public NavCnt navCntUpdate(String id) {
+		String mail_postid = id;
+		NavCnt navCnt = new NavCnt();
+		SqlSession mapper = sqlFactory.openSession();
+		navCnt.setProduct(mapper.selectOne("product.getMyListCnt", id));
+		navCnt.setSell(mapper.selectOne("product.getMySoldListCnt", id));
+		navCnt.setBuy(mapper.selectOne("product.getMyBuyListCnt", id));
+		navCnt.setLike(mapper.selectOne("Favorites.getFavListCnt", id));
+		navCnt.setMail(mapper.selectOne("MailSpace.countMails", mail_postid));
+		mapper.close();
+		return navCnt;
+	}
+
 	// 회원가입 완료 화면 + @
 	public Member getInfo(String id) {
 		SqlSession mapper = sqlFactory.openSession();
@@ -45,7 +59,6 @@ public class MemberDao {
 		return user;
 	}
 
-	//
 	public Member passwordCheck(Map<String, Object> map) {
 		SqlSession mapper = sqlFactory.openSession();
 		Member dto = mapper.selectOne("passwordCheck", map);
@@ -53,11 +66,11 @@ public class MemberDao {
 		return dto;
 	}
 
-	public int idCheck(String id) {
+	public Member idCheck(String id) {
 		SqlSession mapper = sqlFactory.openSession();
-		int count = mapper.selectOne("Member.idCheck", id);
+		Member dto = mapper.selectOne("Member.idCheck", id);
 		mapper.close();
-		return count;
+		return dto;
 	}
 
 	public Member findId(Map<String, String> map) {

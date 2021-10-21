@@ -20,8 +20,7 @@ public class MyProfileAction implements Action {
 
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
-		String member_id = (String)request.getParameter("member_id");
-		
+		String member_id = request.getParameter("member_id");
 		MemberDao mdao = MemberDao.getInstance();
 		ProductDao dao = ProductDao.getInstance();
 		

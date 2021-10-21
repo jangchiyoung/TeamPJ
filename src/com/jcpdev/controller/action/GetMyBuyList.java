@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.jcpdev.dao.MemberDao;
 import com.jcpdev.dao.ProductDao;
 import com.jcpdev.dto.Member;
+import com.jcpdev.dto.NavCnt;
 import com.jcpdev.dto.Product;
 
 public class GetMyBuyList implements Action {
@@ -28,6 +29,7 @@ public class GetMyBuyList implements Action {
 		String id = (String) session.getAttribute("user_id");
 		MemberDao mdao = MemberDao.getInstance();
 
+		NavCnt cnt = mdao.navCntUpdate(id);
 		Member user = mdao.getInfo(id);
 		List<Product> list = dao.getMyBuyList(user);
 		List<Member> memlist = new ArrayList<Member>();
@@ -35,7 +37,8 @@ public class GetMyBuyList implements Action {
 		for (Product vo : list) {
 			memlist.add(mdao.getInfo(vo.getProduct_seller()));
 		}
-
+		
+		request.setAttribute("cnt", cnt);
 		request.setAttribute("list", list);
 		request.setAttribute("memlist", memlist);
 

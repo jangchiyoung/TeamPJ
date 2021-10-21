@@ -29,7 +29,7 @@ public class ProductDao {
 		mapper.close();
 		return list;
 	}
-	
+
 	public List<Product> getSearchList(String content) { // 상품 검색 리스트
 		List<Product> list = null;
 		SqlSession mapper = factory.openSession();
@@ -37,7 +37,7 @@ public class ProductDao {
 		mapper.close();
 		return list;
 	}
-	
+
 	public List<Product> getMyList(Member vo) { // 판매중
 		List<Product> list = null;
 		SqlSession mapper = factory.openSession();
@@ -45,7 +45,7 @@ public class ProductDao {
 		mapper.close();
 		return list;
 	}
-	
+
 	public List<Product> getMySoldList(Member vo) { // 판매내역
 		List<Product> list = null;
 		SqlSession mapper = factory.openSession();
@@ -89,14 +89,14 @@ public class ProductDao {
 		mapper.commit();
 		mapper.close();
 	}
-	
+
 	public void update_product_done(Product dto) { // 상품상태 변경 (거래완료)
 		SqlSession mapper = factory.openSession();
 		mapper.insert("product.update_product_done", dto);
 		mapper.commit();
 		mapper.close();
 	}
-	
+
 	public void update_like(int product_no) { // 즐겨찾기 등록
 		SqlSession mapper = factory.openSession();
 		mapper.insert("product.update_like", product_no);
@@ -119,9 +119,9 @@ public class ProductDao {
 		return list;
 	}
 
-	public void delete(Map<String, Object> map) { // 상품 삭제
+	public void delete(int product_no) { // 상품 삭제
 		SqlSession mapper = factory.openSession();
-		mapper.delete("product.delete", map);
+		mapper.delete("product.delete", product_no);
 		mapper.commit();
 		mapper.close();
 	}
@@ -132,12 +132,20 @@ public class ProductDao {
 		mapper.commit();
 		mapper.close();
 	}
-	
-	public int getMySellCount(String dto) { // 조회수
+
+	public int getMySellCount(String dto) { //
 		SqlSession mapper = factory.openSession();
 		int cnt = mapper.selectOne("product.getMySellCount", dto);
 		mapper.close();
 		return cnt;
+	}
+
+	public Product getProduct(int product_no) {
+		Product Vo = null;
+		SqlSession mapper = factory.openSession();
+		Vo = mapper.selectOne("product.getProduct", product_no);
+		mapper.close();
+		return Vo;
 	}
 
 }

@@ -5,10 +5,10 @@
 <%@page import="com.jcpdev.dto.Mail"%>
 <%@page import="java.util.List"%>
 <%@page import="com.jcpdev.dao.MailDao"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <%
 MailDao mail_dao = MailDao.getInstance();
 MemberDao member_dao = MemberDao.getInstance();
@@ -47,31 +47,26 @@ List<Mail> list = mail_dao.getMailList(room);
 	<%
 	for (Mail m : list) {
 		if (id.equals(m.getMail_sendid())) {
+		
 	%>
+		
 	<div class="right_div">
 		<p class="mail_id_content"><%=m.getMail_sendid()%></p>
 		<p><%=m.getMail_content()%></p>
-		<p class="mail_date_content">
-			<td><fmt:formatDate value="<%=m.getMail_date()%>"
-					pattern="yyyy-MM-dd" /></td>
-		</p>
+		<p class="mail_date_content"><fmt:formatDate value="<%=m.getMail_date()%>" pattern="yyyy-MM-dd"/></p>
 	</div>
 
 	<%
+	
 	} else {
+		
 	%>
+	
 	<div class="left_div">
 		<p class="mail_id_content"><%=m.getMail_sendid()%></p>
 		<p><%=m.getMail_content()%></p>
-		<p class="mail_date_content">
-			<td><fmt:formatDate value="<%=m.getMail_date()%>"
-					pattern="yyyy-MM-dd" /></td>
-		</p>
+		<p class="mail_date_content"><fmt:formatDate value="<%=m.getMail_date()%>" pattern="yyyy-MM-dd"/></p>
 	</div>
-	<%
-	}
-	%>
-	<%
-	}
-	%>
+	
+	<%}}%>
 </div>

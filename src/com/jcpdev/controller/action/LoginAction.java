@@ -35,9 +35,10 @@ public class LoginAction implements Action {
 		map.put("member_password",member_password);
 		MemberDao dao = MemberDao.getInstance();
 		Member user_check = dao.login(map);
+		
 		if(user_check != null){
-				session.setAttribute("user_id",user_check.getMember_id());
 				session.setAttribute("user_name",user_check.getMember_name());
+				session.setAttribute("user_id",user_check.getMember_id());
 				session.setAttribute("user_img",user_check.getMember_img1());
 				request.setAttribute("message", "로그인 성공");
 				request.setAttribute("url", "index.do");

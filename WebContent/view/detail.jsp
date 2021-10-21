@@ -21,44 +21,44 @@
 			<div class="card">
 			<article class="detail-img">
 				<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <c:if test="${bean.product_img2 !=null }">
-     <li data-target="#myCarousel" data-slide-to="1"></li>
-    </c:if>   
-    <c:if test="${bean.product_img3 !=null}">
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </c:if>
-    </ol>
-
-    <div class="carousel-inner" role="listbox">
-	
-      <div class="item active">
-        <img src="/img/${bean.product_img1 }"width="460" height="345">
-      </div>
-	<c:if test="${bean.product_img2 !=null}">
-      <div class="item">
-        <img src="/img/${bean.product_img2 }" width="460" height="345">
-      </div>
-    </c:if>
-     <c:if test="${bean.product_img3 !=null}">
-      <div class="item">
-        <img src="/img/${bean.product_img3 }" width="460" height="345">
-      </div>
-    </c:if>
-    </div>
-
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
+				    <ol class="carousel-indicators">
+				      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				      <c:if test="${bean.product_img2 !=null }">
+				     <li data-target="#myCarousel" data-slide-to="1"></li>
+				    </c:if>   
+				    <c:if test="${bean.product_img3 !=null}">
+				      <li data-target="#myCarousel" data-slide-to="2"></li>
+				    </c:if>
+				    </ol>
+				
+				    <div class="carousel-inner" role="listbox">
+					
+				      <div class="item active">
+				        <img src="/img/${bean.product_img1 }"width="460" height="345">
+				      </div>
+					<c:if test="${bean.product_img2 !=null}">
+				      <div class="item">
+				        <img src="/img/${bean.product_img2 }" width="460" height="345">
+				      </div>
+				    </c:if>
+				     <c:if test="${bean.product_img3 !=null}">
+				      <div class="item">
+				        <img src="/img/${bean.product_img3 }" width="460" height="345">
+				      </div>
+				    </c:if>
+				    </div>
+				
+				    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+				      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				      <span class="sr-only">Previous</span>
+				    </a>
+				    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+				      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				      <span class="sr-only">Next</span>
+				    </a>
+				  </div>
 			</article>
-			<a href="#" class="article-profile-link ">
+			<a href="orderProfile.do?member_id=${mem.member_id }" class="article-profile-link ">
 			<article class="detail-profile">
 				<img alt="" src="/img/${mem.member_img1 }">
 				<p>${mem.member_name }</p>
@@ -72,9 +72,7 @@
 				</p>
 			</div>
 			<div>
-				<pre class="product_content_pre">
-${bean.product_content }
-				</pre>
+				<pre class="product_content_pre">${bean.product_content }</pre>
 			</div>
 			</article>
 			<c:if test="${sessionScope.user_id !=null }">

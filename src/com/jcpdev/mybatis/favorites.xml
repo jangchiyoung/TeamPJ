@@ -27,4 +27,7 @@
 	<select id="getFavListPd" parameterType="String"	resultType="Favorites">
 		select * from favorites where favorites_member_id = #{favorites_member_id};
 	</select>
+	<select id="getFavListCnt" parameterType="String"	resultType="int">
+		select count(*) from favorites where favorites_member_id = #{id};
+	</select>
 </mapper>

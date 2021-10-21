@@ -30,9 +30,12 @@
 
 	<!-- 쪽지함 갯수 -->
 	<select id="countMails" parameterType="String" resultType="int">
-		select count(mail_postid) from mail where mail_postid = #{mail_postid}
+		select count(mail_postid) from mail where mail_postid = #{mail_postid} and mail_status = 1;
 	</select>
-
+	<!-- 쪽지 읽음 처리 -->
+	<update id="readCheck" parameterType="java.util.Map">
+		update mail set mail_status = 0 where mail_postid=#{id} and mail_product_no = #{product_no} and mail_sendid = #{sendid}
+	</update>
 	<!-- 쪽지함에서 삭제 -->
 	<delete id="delete" parameterType="String">
 		delete from mail where
