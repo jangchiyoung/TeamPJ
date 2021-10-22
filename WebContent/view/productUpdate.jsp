@@ -25,7 +25,8 @@
 						<div>상품 수정</div>
 					</div>
 				</div>
-				<form action="UpdateProduct.do" method="post" enctype="multipart/form-data">
+				<form action="UpdateProduct.do" method="post"
+					enctype="multipart/form-data">
 					<div class="regist_box">
 						<div class="description">
 							<dl class="regist_image_dl" id="images_box">
@@ -36,8 +37,9 @@
 									<div class="container-fluid">
 										<div class="col-md-6">
 											<div class="form-group">
-												<a>최대 3개까지만 업로드 가능합니다.</a>
-												<c:forEach begin="1" end="3" varStatus="index">
+												<a>최대 3개까지만 업로드 가능합니다.</a> 
+												<input type="file" name="product_img1" class="form-control user_picked_files" accept="image/*" required />
+												<c:forEach begin="2" end="3" varStatus="index">
 												<input type="file" name="product_img${index.count }" class="form-control user_picked_files" accept="image/*" />
 												</c:forEach>
 											</div>
@@ -45,12 +47,13 @@
 											</ul>
 										</div>
 									</div>
-									<input type="hidden" name="product_no" value="${list.product_no }">
+									<input type="hidden" name="product_no"
+										value="${list.product_no }">
 									<ul class="image_list">
-									<li file="${list.product_img1 }" >
-									<img class="item_img" src="/img/${list.product_img1 }">
-									<a href="#" class="cvf_delete_image" title="Cancel">
-									<img class="delete-btn" src="img/delete.png"></a></li>
+										<li file="${list.product_img1 }"><img class="item_img"
+											src="/img/${list.product_img1 }"> <a href="#"
+											class="cvf_delete_image" title="Cancel"> <img
+												class="delete-btn" src="img/delete.png"></a></li>
 									</ul>
 								</dd>
 							</dl>
@@ -70,7 +73,7 @@
 								<dd>
 									<div class="item_select_box">
 										<select name="product_category">
-										<option value="${list.product_category }">${list.product_category }</option>
+											<option value="${list.product_category }">${list.product_category }</option>
 											<option value="스포츠">스포츠</option>
 											<option value="뷰티">뷰티</option>
 											<option value="여성의류">여성의류</option>
@@ -85,7 +88,8 @@
 											<option value="도서">도서</option>
 											<option value="문구">문구</option>
 											<option value="반려동물용품">반려동물용품</option>
-											<option value="기타">기타</option></select>
+											<option value="기타">기타</option>
+										</select>
 									</div>
 								</dd>
 							</dl>
@@ -106,8 +110,9 @@
 								<dd>
 									<div class="box_sell_method box_area">
 										<div class="box_price">
-											<input type="text" name="product_price" placeholder="가격을 입력해주세요."
-												value="${list.product_price }" style="width: 90%; max-width: 280px; height: 38px;"><span
+											<input type="text" name="product_price"
+												placeholder="가격을 입력해주세요." value="${list.product_price }"
+												style="width: 90%; max-width: 280px; height: 38px;"><span
 												class="input_span_text">원</span>
 										</div>
 									</div>

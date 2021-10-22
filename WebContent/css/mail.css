@@ -19,7 +19,6 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big,
 	margin: 0;
 	padding: 0;
 	border: 0;
-	vertical-align: baseline;
 	font-weight: 400;
 	color: #333;
 	font-family: 돋움, Dotum, Arial;
@@ -376,12 +375,24 @@ button {
 .right_div {
 	margin-bottom: 1em;
 	text-align: right;
-	border-bottom: 1px solid #efefef;
+	overflow: hidden;
+    border-radius: 8px;
+    width: 100%;
+    top: 0;
+    bottom: 49px;
+    left: 0;
+    right: 0;
 }
 
 .left_div {
 	margin-bottom: 1em;
-	border-bottom: 1px solid #efefef;
+	overflow: hidden;
+    border-radius: 8px;
+    width: 100%;
+    top: 0;
+    bottom: 49px;
+    left: 0;
+    right: 0;
 }
 
 .mail_id_content {
@@ -389,11 +400,22 @@ button {
 	font-size: 0.9em;
 }
 
-.mail_date_content {
+.mail_left_date_content {
 	font-size: -1.5em;
-	color: gray;
+	position: relative;
+    font-size: 9px;
+    color: #b4b4b4;
+    bottom: -24px;
+    right: -8px;
 }
-
+.mail_right_date_content {
+	font-size: -1.5em;
+	position: relative;
+    font-size: 9px;
+    color: #b4b4b4;
+    bottom: -24px;
+    left: -8px;
+}
 .size_limite {
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -402,4 +424,68 @@ button {
 	display: -webkit-box;
 	-webkit-line-clamp: 1;
 	-webkit-box-orient: vertical;
+}
+.chat_div {
+	margin-top: 12px;
+}
+.mail_right_content {
+	background-color: #0484f6;
+    margin-right: 21px;
+    word-break: break-all;
+    position: relative;
+    float: right;
+    text-align: left;
+    max-width: 200px;
+    padding: 9px 12px;
+    border-radius: 10px 0 10px 10px;
+    font-size: 13.5px;
+    color: #fff;
+}
+.mail_left_content {
+	background-color: #ebebeb;
+    margin-left: 21px;
+    word-break: break-all;
+    position: relative;
+    float: left;
+    text-align: right;
+    max-width: 200px;
+    padding: 9px 12px;
+    border-radius: 0 10px 10px 10px;
+    font-size: 13.5px;
+    color: #000;
+}
+.profile_div {
+	width: 200px;
+	height: 35px;
+	display: flex;
+    flex-direction: row;
+}
+.profile_img {
+	width: 30px;
+	height: 30px;
+	margin-left: 4px;
+}
+.mail_left_content:after {
+content: "";
+    position: absolute;
+    border-color: transparent transparent #ebebeb!important;
+    border: 10px solid #000;
+    transform-origin: 0 0;
+    left: 0px;
+    top: -15px;
+    -webkit-transform: rotate( -315deg );
+    -moz-transform: rotate(-315deg);
+    transform: rotate(-315deg);
+}
+.mail_right_content:after {
+content: "";
+    position: absolute;
+    border-color: transparent transparent #0484f6!important;
+    border: 10px solid #000;
+    transform-origin: 0 0;
+    right: 0;
+    top: 0;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
 }

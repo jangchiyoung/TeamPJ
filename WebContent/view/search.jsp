@@ -18,7 +18,7 @@
 				</div>
 				<div class="row">
 				<c:forEach items="${list }" var="item">
-					<div class="card col-md-4 col-sm-6" onclick="TestFuc()">
+					<div class="card col-md-4 col-sm-6" onclick="location.href='detail.do?pno=${item.product_no}'">
 						<img src="/img/${item.product_img1 }" class="card-img-top" alt="...">
 						<div class="card-body">
 							<h5 class="card-title size_limite" >${item.product_name }</h5>

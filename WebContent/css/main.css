@@ -19,10 +19,10 @@
 }
 .card {
     border:none;
-	margin-bottom: 7em;
+	margin-bottom: 2em;
 }
 .card-img-top {
-	height: 10em;
+	height: 18em;
 }
 .size_limite {
    overflow: hidden;

@@ -26,7 +26,8 @@ List<Mail> list = mail_dao.getMailList(room);
 <div class="chat_header">
 	<div class="image_box">
 		<div class="image_table">
-			<img src="/img/<%=member.getMember_img1()%>" alt="<%=member.getMember_name() %> 프로필 이미지">
+			<img onclick="location.href='orderProfile.do?member_id=<%=member.getMember_id() %>'"
+			src="/img/<%=member.getMember_img1()%>" alt="<%=member.getMember_name() %> 프로필 이미지">
 		</div>
 	</div>
 	<div class="info">
@@ -49,24 +50,27 @@ List<Mail> list = mail_dao.getMailList(room);
 		if (id.equals(m.getMail_sendid())) {
 		
 	%>
-		
-	<div class="right_div">
-		<p class="mail_id_content"><%=m.getMail_sendid()%></p>
-		<p><%=m.getMail_content()%></p>
-		<p class="mail_date_content"><fmt:formatDate value="<%=m.getMail_date()%>" pattern="yyyy-MM-dd"/></p>
+	<div class="chat_div">
+		<div class="right_div">
+			<div class="mail_id_content" style="display: none;"><%=m.getMail_sendid()%></div>
+			<div class="mail_right_content"><%=m.getMail_content()%></div>
+			<div class="mail_right_date_content"><fmt:formatDate value="<%=m.getMail_date()%>" pattern="yyyy-MM-dd"/></div>
+		</div>
 	</div>
-
 	<%
 	
 	} else {
 		
 	%>
-	
+	<div class="chat_div">
 	<div class="left_div">
-		<p class="mail_id_content"><%=m.getMail_sendid()%></p>
-		<p><%=m.getMail_content()%></p>
-		<p class="mail_date_content"><fmt:formatDate value="<%=m.getMail_date()%>" pattern="yyyy-MM-dd"/></p>
+		<div class="profile_div">
+			<img class="profile_img" src="/img/<%=member.getMember_img1()%>" alt="<%=member.getMember_name() %> 프로필 이미지">
+			<div class="mail_id_content"><%=m.getMail_sendid()%></div>
+			</div>
+		<div class="mail_left_content"><%=m.getMail_content()%></div>
+		<div class="mail_left_date_content"><fmt:formatDate value="<%=m.getMail_date()%>" pattern="yyyy-MM-dd"/></div>
 	</div>
-	
+	</div>
 	<%}}%>
 </div>
