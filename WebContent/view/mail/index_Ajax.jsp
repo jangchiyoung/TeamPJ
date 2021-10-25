@@ -12,7 +12,7 @@ response.setCharacterEncoding("UTF-8");
 response.setContentType("text/html");
 int Start = Integer.parseInt(request.getParameter("StartNo"));
 int End = Integer.parseInt(request.getParameter("EndNo"));
-int StartNo =Start;
+int StartNo =8;
 int EndNo = End+8;
 
 ProductDao dao = ProductDao.getInstance();

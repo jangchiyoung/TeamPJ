@@ -14,7 +14,7 @@ response.setContentType("text/html");
 String content = request.getParameter("content");
 int Start = Integer.parseInt(request.getParameter("StartNo"));
 int End = Integer.parseInt(request.getParameter("EndNo"));
-int StartNo =Start;
+int StartNo =6;
 int EndNo = End+6;
 
 ProductDao dao = ProductDao.getInstance();
