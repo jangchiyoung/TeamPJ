@@ -66,7 +66,7 @@
 								<dd>
 									<div class="item_select_box">
 										<select name="product_category">
-											<option value="" hidden="">카테고리</option>
+											<option value="기타" selected="selected">기타</option>
 											<option value="스포츠">스포츠</option>
 											<option value="뷰티">뷰티</option>
 											<option value="여성의류">여성의류</option>
@@ -81,7 +81,6 @@
 											<option value="도서">도서</option>
 											<option value="문구">문구</option>
 											<option value="반려동물용품">반려동물용품</option>
-											<option value="기타">기타</option>
 										</select>
 									</div>
 								</dd>

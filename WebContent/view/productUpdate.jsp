@@ -73,7 +73,7 @@
 								<dd>
 									<div class="item_select_box">
 										<select name="product_category">
-											<option value="${list.product_category }">${list.product_category }</option>
+											<option value="${list.product_category }" selected="selected">${list.product_category }</option>
 											<option value="스포츠">스포츠</option>
 											<option value="뷰티">뷰티</option>
 											<option value="여성의류">여성의류</option>

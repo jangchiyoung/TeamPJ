@@ -66,7 +66,6 @@
 									onclick="location.href='productAdd.do'">물품 등록</div>
 								<table class="table table-hover">
 									<tr>
-										<th>상태</th>
 										<th>상품이름</th>
 										<th>등록날짜</th>
 										<th>가격</th>
@@ -75,7 +74,6 @@
 									<c:forEach items="${list }" var="item" varStatus="index">
 										<tr data-toggle="collapse" href="#product_${index.count }"
 											aria-expanded="false" aria-controls="product_${index.count }">
-											<td><span class="btn btn-success" style="width: 100%">${item.product_status}</span></td>
 											<td style="width: 23em;"><p class="product_list_name">${item.product_name}</p></td>
 											<td><fmt:formatDate value="${item.product_date}" pattern="yyyy-MM-dd"/></td>
 											<td><fmt:formatNumber value="${item.product_price}" pattern="#,###"/>원</td>

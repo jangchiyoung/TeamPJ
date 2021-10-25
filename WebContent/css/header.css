@@ -40,6 +40,14 @@
 	background-color: white;
 	box-shadow: 0 4px 4px -4px black;
 }
+@media screen and (max-width: 768px) { 
+	.header { 
+    	height: 11em;
+    }
+    .header-search-button{
+    display: none;
+    }
+}
 .img_profile {
 	width: 42px;
     height: 42px;

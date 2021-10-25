@@ -37,12 +37,13 @@
 }
 
 .getList {
-	color: #198754;
-    background-color: #fff;
-    border-color: #198754;
-    border-radius: 11px;
-   	font-size: large;
-    height: 45px;
+	background-color: #fff;
+	border-color: #198754;
+	border: none;
+	border-top: 1px solid;
+	margin-top: 1em;
+	padding-top: 0.4em;
+	margin-bottom: 5em;
 }
 
 /* .mypage-section {

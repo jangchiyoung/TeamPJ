@@ -25,6 +25,8 @@ map.put("EndNo",EndNo);
 List<Product> list = dao.getSearchListAdd(map);
 request.setAttribute("EndNo", EndNo);
 request.setAttribute("StartNo", StartNo);
+request.setAttribute("content", content);
+
 %>
 				<div class="row">
 				<%

@@ -64,6 +64,9 @@ function getList(StartNo,EndNo){
 			success : function(data) { 
 				$('#add').html(data); 
 				$('#get').remove();
+			},
+			error : function(data) {
+				alert("더 이상 조회목록이 없습니다.")
 			}
 		});
 	}
