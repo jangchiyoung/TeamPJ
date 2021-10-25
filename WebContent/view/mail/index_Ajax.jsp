@@ -12,7 +12,7 @@ response.setCharacterEncoding("UTF-8");
 response.setContentType("text/html");
 int Start = Integer.parseInt(request.getParameter("StartNo"));
 int End = Integer.parseInt(request.getParameter("EndNo"));
-int StartNo =8;
+int StartNo =Start;
 int EndNo = End+8;
 
 ProductDao dao = ProductDao.getInstance();
@@ -20,8 +20,8 @@ Map<String,Integer> map = new HashMap<>();
 map.put("StartNo",StartNo);
 map.put("EndNo",EndNo);
 List<Product> list = dao.getAddList(map);
-request.setAttribute("StartNo", StartNo);
 request.setAttribute("EndNo", EndNo);
+request.setAttribute("StartNo", StartNo);
 %>
 <div class="row">
 		<%

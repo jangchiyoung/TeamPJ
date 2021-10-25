@@ -67,10 +67,5 @@ function getList(StartNo,EndNo){
 			}
 		});
 	}
-/* $(function(){
-  $('.getList').click(function(){
-    $('.get').Style.display:none;
-  });
-}); */
 </script>
 <%@include file="include/footer.jsp"%>

@@ -432,7 +432,7 @@ button {
 	margin-top: 12px;
 }
 .mail_right_content {
-	background-color: #0484f6;
+	background-color: #28a745;
     margin-right: 21px;
     word-break: break-all;
     position: relative;
@@ -456,6 +456,7 @@ button {
     border-radius: 0 10px 10px 10px;
     font-size: 13.5px;
     color: #000;
+    margin-top: 10px;
 }
 .profile_div {
 	width: 200px;
@@ -486,7 +487,7 @@ content: "";
 .mail_right_content:after {
 content: "";
     position: absolute;
-    border-color: transparent transparent #0484f6!important;
+    border-color: transparent transparent #28a745!important;
     border: 10px solid #000;
     transform-origin: 0 0;
     right: 0;

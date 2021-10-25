@@ -23,6 +23,8 @@
 }
 .card-img-top {
 	height: 18em;
+	border: 1px solid transparent;
+	object-fit: contain;
 }
 .size_limite {
    overflow: hidden;
@@ -39,7 +41,10 @@
     background-color: #fff;
     border-color: #198754;
     border-radius: 11px;
+   	font-size: large;
+    height: 45px;
 }
+
 /* .mypage-section {
 	margin-top: 140px;
 	min-height: 100%;

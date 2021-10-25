@@ -16,3 +16,15 @@
 	font-weight: bold;
 	margin-bottom: 20px;
 }
+img {
+	border: 1px solid transparent;
+	object-fit: contain;
+}
+.getSearchList {
+	color: #198754;
+    background-color: #fff;
+    border-color: #198754;
+    border-radius: 11px;
+    font-size: large;
+    height: 45px;
+}

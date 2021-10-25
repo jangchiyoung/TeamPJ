@@ -45,6 +45,14 @@ public class ProductDao {
 		mapper.close();
 		return list;
 	}
+	
+	public List<Product> getSearchListAdd(Map<String, Object> map) { // 상품 검색 리스트
+		List<Product> list = null;
+		SqlSession mapper = factory.openSession();
+		list = mapper.selectList("product.getSearchListAdd", map);
+		mapper.close();
+		return list;
+	}
 
 	public List<Product> getMyList(Member vo) { // 판매중
 		List<Product> list = null;

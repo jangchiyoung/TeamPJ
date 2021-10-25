@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <link rel="stylesheet" type="text/css" href="./css/header.css">
 <link rel="stylesheet" type="text/css" href="./css/footer.css">
 <link rel="stylesheet" type="text/css" href="./css/main.css">
@@ -30,14 +31,26 @@
 						</div>
 					</div>
 				</c:forEach>
+				<div id="add"></div>
+				 <button id="getSearch" class="getSearchList"  onclick="getSearchList('${content }','${StartNo }','${EndNo }')">더보기</button>
 				</div>
-<!-- 				<div class="more-btn" onclick="#"> -->
-<!-- 					<p>더보기</p> -->
-<!-- 				</div> -->
 			</div>
 		</div>
 	</div>
 </div>
-
+<script type="text/javascript">
+function getSearchList(content,StartNo,EndNo){
+	$.ajax({
+			type : 'post',
+			url : './view/mail/search_Ajax.jsp',
+			data : {"content":content,"StartNo":StartNo,"EndNo":EndNo}, 
+			dataType : 'html', 
+			success : function(data) { 
+				$('#add').html(data); 
+				$('#getSearch').remove();
+			}
+		});
+	}
+</script>
 
 <%@include file="../include/footer.jsp"%>

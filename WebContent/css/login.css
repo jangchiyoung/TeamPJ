@@ -1,13 +1,22 @@
+@charset "UTF-8";
+
+@FONT-FACE {
+   font-family: 'monhwa';
+   src: url("../include/monhwa.ttf");
+}
+* {
+   font-family: monhwa;
+}
 body  {
     background-color:#f7f7f7;
 }
+
 #login {
     width:100%;
     height:100%;
 }
 .header_title {
     text-align: center;
-    font-family: NanumGothicBold;
     font-size: 28px;
     margin-bottom: 35px;
 }
@@ -24,7 +33,6 @@ body  {
     box-sizing: border-box;
     padding-top:60px;
     padding-bottom:60px;
-    font-family: NanumGothic;
 }
 .ANBD_logo {
     margin-bottom: 25px;
@@ -39,7 +47,6 @@ body  {
     height:50px;
     border-radius: 3px;
     border:1px solid #e1e1e1;
-    font-family: NanumGothic;
     color:#333333;
     font-size:14px;
     padding-left:20px;
@@ -52,7 +59,6 @@ body  {
     height:50px;
     border-radius: 3px;
     border:1px solid #e1e1e1;
-    font-family: NanumGothic;
     color:#333333;
     font-size:14px;
     padding-left:20px;
@@ -65,7 +71,6 @@ body  {
     height:50px;
     border-radius: 3px;
     border:1px solid #e1e1e1;
-    font-family: NanumGothic;
     color:#333333;
     font-size:14px;
     padding-left:20px;
@@ -76,7 +81,6 @@ body  {
 .login_button {
     color:#ffffff;
     font-size:16px;
-    font-family: NanumGothicBold;
     text-align: center;
     height:55px;
     line-height:55px;

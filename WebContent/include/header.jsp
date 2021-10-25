@@ -47,6 +47,9 @@ window.onload = function mailRefresh() {
    <a href="index.do"><img src="img/logo.png" class="img-logo me-auto" width="100" height="74"></a>
       <form class="d-flex" action="SearchAction.do" method="post" name="formname"  accept-charset="UTF-8">
         <input class="form-control me-2 searchbox" type="text" onkeyup="enterkey()" name="search_name" placeholder="물건명을 입력해보세요!" >
+        <button id="header-search-button" class="header-search-button">
+          <img class="fixed-search-icon" alt="Search" src="https://d1unjqcospf8gs.cloudfront.net/assets/home/base/header/search-icon-7008edd4f9aaa32188f55e65258f1c1905d7a9d1a3ca2a07ae809b5535380f14.svg">
+        </button>
       </form>
     <div class="collapse navbar-collapse ">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-gr">
