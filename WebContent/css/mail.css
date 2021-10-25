@@ -104,6 +104,7 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big,
 	font-size: 13px;
 	color: #4e4e4c;
 	width: 123px;
+	
 }
 
 .left_main ul li .info .description, .left_main ul li .info .nick {
@@ -111,7 +112,7 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big,
 	left: 0;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	overflow: hidden;
+	overflow: visible;
 }
 
 .left_main ul li .info .time_ago {
@@ -156,6 +157,7 @@ a {
 	background-color: #fff;
 	border-bottom: 1px solid #ebebeb;
 	height: 80px;
+	display: flex;
 }
 
 .right_main {
@@ -396,7 +398,8 @@ button {
 }
 
 .mail_id_content {
-	margin-bottom: 1em;
+	margin-top: 0.5em;
+    margin-left: 0.5em;
 	font-size: 0.9em;
 }
 
@@ -461,9 +464,12 @@ button {
     flex-direction: row;
 }
 .profile_img {
-	width: 30px;
-	height: 30px;
 	margin-left: 4px;
+	width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid #ebebeb;
+	
 }
 .mail_left_content:after {
 content: "";

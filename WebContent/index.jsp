@@ -8,12 +8,9 @@
 <link rel="stylesheet" type="text/css" href="css/footer.css">
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/upScroll.css">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <section class="home-main-section">
-	<div>
-		<img alt="" src="">
-	</div>
-	
+		
 	<div class="row">
 	<h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">오늘의 상품 추천</h2>
 		<c:forEach items="${list }" var="item" varStatus="index">
@@ -31,6 +28,8 @@
 				</div>
 			</div>
 		</c:forEach>
+		 <div id="add"></div>
+		 <button id="get" class="getList"  onclick="getList('${StartNo }','${EndNo }')">더보기</button>
 		<div class="scroll_top_btn_warpper">
 		<div class="scroll_top_btn">
 		<a href="#header"></a>
@@ -55,5 +54,23 @@ $(function(){
 	    }
 	  });
 	});
+	
+function getList(StartNo,EndNo){
+	$.ajax({
+			type : 'post',
+			url : './view/mail/index_Ajax.jsp',
+			data : {"StartNo":StartNo,"EndNo":EndNo}, 
+			dataType : 'html', 
+			success : function(data) { 
+				$('#add').html(data); 
+				$('#get').remove();
+			}
+		});
+	}
+/* $(function(){
+  $('.getList').click(function(){
+    $('.get').Style.display:none;
+  });
+}); */
 </script>
 <%@include file="include/footer.jsp"%>

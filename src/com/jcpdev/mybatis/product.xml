@@ -7,7 +7,12 @@
 	<!-- 상품테이블 리스트 -->
 	<select id="getList" resultType="Product">
 		select * from product where
-		product_status = 'ing'
+		product_status = 'ing' order by product_no limit 0,8
+	</select>
+	<!-- 상품테이블 리스트 -->
+	<select id="getAddList" resultType="Product" parameterType="java.util.Map">
+		select * from product where
+		product_status = 'ing' order by product_no limit #{StartNo},#{EndNo}
 	</select>
 
 	<!-- 내 판매내역 -->

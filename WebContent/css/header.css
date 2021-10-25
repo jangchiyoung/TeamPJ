@@ -1,5 +1,13 @@
 @charset "UTF-8";
 
+@FONT-FACE {
+   font-family: 'monhwa';
+   src: url("../include/monhwa.ttf");
+}
+
+* {
+   font-family: monhwa;
+}
 .html, body {
 	height: 100%;
 	margin: 0;

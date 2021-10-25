@@ -180,13 +180,13 @@ public class FrontController extends HttpServlet {
 		}  else if (spath.equals("/FavoritesDeleteAction.do")) {
 			Action action = new FavoritesDeleteAction();
 			forward = action.execute(request, response);
-		}else if (spath.equals("/GetProduct.do")) {
+		} else if (spath.equals("/GetProduct.do")) {
 			Action action = new GetProductAction();
 			forward = action.execute(request, response);
 		} else if (spath.equals("/UpdateProduct.do")) {
 			Action action = new UpdateProduct();
 			forward = action.execute(request, response);
-		}
+		} 
 
 		if (forward.isRedirect()) {
 			response.sendRedirect(forward.getUrl());

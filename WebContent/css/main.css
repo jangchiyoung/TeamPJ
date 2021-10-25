@@ -33,6 +33,13 @@
    -webkit-line-clamp: 1;
    -webkit-box-orient: vertical;
 }
+
+.getList {
+	color: #198754;
+    background-color: #fff;
+    border-color: #198754;
+    border-radius: 11px;
+}
 /* .mypage-section {
 	margin-top: 140px;
 	min-height: 100%;

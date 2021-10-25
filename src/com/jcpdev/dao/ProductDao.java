@@ -29,6 +29,14 @@ public class ProductDao {
 		mapper.close();
 		return list;
 	}
+	public List<Product> getAddList(Map<String, Integer> map){ 
+		//key(변수명처럼 이해) String, value 는 int
+		List<Product> list = null;
+		SqlSession mapper = factory.openSession();
+		list = mapper.selectList("product.getAddList",map);  
+		//	mapper.close();
+		return list;
+	}
 
 	public List<Product> getSearchList(String content) { // 상품 검색 리스트
 		List<Product> list = null;
