@@ -52,7 +52,7 @@
                 		<th>삭제</th>
                 	</tr>
                 	<c:forEach items="${list }" var="item" varStatus="index">
-                	<tr>
+                	<tr onclick="location.href='detail.do?pno=${item.product_no}'">
                 		<td>${memlist[index.count-1].member_name}</td>
                 		<td style="width: 23em;"><p class="product_list_name">${item.product_name}</p></td>
 						<td><fmt:formatNumber value="${item.product_price}" pattern="#,###"/>원</td>

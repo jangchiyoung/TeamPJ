@@ -23,7 +23,7 @@
 					</div>
 				</div>
 				<div class="login_line"></div>
-				<form action="findId_complete.do" method="post">
+				<form action="findId_Action.do" method="post">
 					<div class="input_section">
 						<input class="input" type="text" id="name" name="member_name" placeholder="이름">
 						<input class="input" type="email" id="email" name="member_email" placeholder="이메일(주소)">

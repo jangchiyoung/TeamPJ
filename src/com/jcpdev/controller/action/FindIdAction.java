@@ -32,11 +32,18 @@ public class FindIdAction implements Action {
 		map.put("member_tel",member_tel);
 		MemberDao dao = MemberDao.getInstance();
 		Member user = dao.findId(map);
-		request.setAttribute("bean", user);
 		
 		ActionForward foward = new ActionForward();
 		foward.isRedirect = false;
-		foward.url="community/find_id_C.jsp";
+		
+		if(user != null){
+			request.setAttribute("bean", user);
+			foward.url="findId_complete_success.do";
+		}else {
+			request.setAttribute("message", "아이디 찾기 실패");
+			request.setAttribute("url", "findId_complete_error.do");
+			foward.url="error/alert.jsp";
+		}
 		return foward;
 	};
 }
