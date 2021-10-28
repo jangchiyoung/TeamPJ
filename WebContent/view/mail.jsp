@@ -48,7 +48,9 @@ function getMailList(room,id,p_no){
 			data : {"room":room,"order_id":id,"p_no":p_no}, 
 			dataType : 'html', 
 			success : function(data) { 
-				$('#message').html(data); 
+				$('#message').html(data);
+				<!-- 채팅 스크롤 하단으로 보내기 -->
+				$('#chatContent').scrollTop($('#chatContent')[0].scrollHeight);
 			}
 		});
 		readCheck(room,id,p_no);
@@ -87,8 +89,10 @@ function insert_mail(room){
 			dataType : 'html', 
 			success : function() { 
 				getMailList(room,postid,product_no);
+
 			}
 		});
 	}
+		
 </script>
 <%@include file="/include/footer.jsp"%>

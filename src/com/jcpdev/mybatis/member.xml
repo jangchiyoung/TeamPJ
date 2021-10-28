@@ -84,11 +84,11 @@
 	</select>
 	
 	<select id="getMemberList" resultType="Member">
-		select * from member where member_status ='0';
+		select * from member where member_status ='0' and member_id != 'admin';
 	</select>
 	
 	<select id="getWithdrawalMemberList" resultType="Member">
-		select * from member where member_status ='1';
+		select * from member where member_status ='1' and member_id != 'admin';
 	</select>
 	
 	<update id="delete_member" parameterType="String">
@@ -102,6 +102,6 @@
 		update member set
 		member_status = '0'
 		where
-		member_id = #{member_id}
+		member_id = #{member_id} 
 	</update>
 </mapper>

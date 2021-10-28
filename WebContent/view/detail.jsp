@@ -122,6 +122,9 @@
 		if(comment === ''){
 			alert('내용을 입력해주세요.');
 			return false;
+		}else if(comment ===null){
+			alert('취소 하였습니다.');
+			return false;
 		}else{
 			$.ajax({
 				type : 'post',

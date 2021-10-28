@@ -14,8 +14,10 @@ import com.jcpdev.controller.action.ActionForward;
 import com.jcpdev.controller.action.Admin_CategoryAction;
 import com.jcpdev.controller.action.Admin_Category_AddAction;
 import com.jcpdev.controller.action.Admin_Category_DeleteAction;
+import com.jcpdev.controller.action.Admin_Declaration_DeleteAction;
 import com.jcpdev.controller.action.Admin_MainAction;
 import com.jcpdev.controller.action.Admin_ProductAction;
+import com.jcpdev.controller.action.Admin_Product_DeleteAction;
 import com.jcpdev.controller.action.DeleteMemberAction;
 import com.jcpdev.controller.action.DeleteProduct;
 import com.jcpdev.controller.action.FavoritesDeleteAction;
@@ -201,9 +203,6 @@ public class FrontController extends HttpServlet {
 		} else if (spath.equals("/Admin-Product.do")) {
 			Action action = new Admin_ProductAction();
 			forward = action.execute(request, response);
-		} else if (spath.equals("/Admin-Member.do")) {
-			path = "./view/admin/admin-member.jsp";
-			forward = new ActionForward(false, path);
 		} else if (spath.equals("/Admin-Category.do")) {
 			Action action = new Admin_CategoryAction();
 			forward = action.execute(request, response);
@@ -224,6 +223,12 @@ public class FrontController extends HttpServlet {
 			forward = action.execute(request, response);
 		} else if (spath.equals("/RecoverMemberAction.do")) {
 			Action action = new RecoverMemberAction();
+			forward = action.execute(request, response);
+		} else if (spath.equals("/Admin_Product_Delete.do")) {
+			Action action = new Admin_Product_DeleteAction();
+			forward = action.execute(request, response);
+		} else if (spath.equals("/Admin_Declaration_Delete.do")) {
+			Action action = new Admin_Declaration_DeleteAction();
 			forward = action.execute(request, response);
 		} 
 

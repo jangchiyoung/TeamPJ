@@ -39,6 +39,7 @@ public class InsertProduct implements Action {
 			
 			ProductDao pdao = ProductDao.getInstance();
 			Product vo = new Product(0,product_category,product_name, product_content, product_price, filename1, filename2, filename3,id, null, null,0, null,null,0);
+			pdao.insert(vo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -59,3 +59,11 @@
 	height: 37px;
 	margin-right: 1em;
 }
+.btn-danger1 {
+	color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+.delete {
+	width: 49.5%;
+}

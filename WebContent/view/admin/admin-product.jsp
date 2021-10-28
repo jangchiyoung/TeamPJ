@@ -38,8 +38,8 @@
 					<div class="card mt-3">
 							<div class="list-group list-group-flush">
 								<a class="list-group-item " href="Admin.do"> <i	class="bi bi-info-circle" style="margin-right: 10px;"></i>통계</a> 
-								<a class="list-group-item active" href="Admin-Product.do"><i class="bi bi-bag-plus" style="margin-right: 10px;">	</i>상품 관리<span	class="badge badge-success">${cnt.product }</span></a> 
-								<a class="list-group-item" href="Admin-Member.do"><i class="bi bi-bag-fill"	style="margin-right: 10px;"></i>회원 관리<span	class="badge badge-success">${cnt.buy }</span></a> 
+								<a class="list-group-item active" href="Admin-Product.do"><i class="bi bi-cart-fill" style="margin-right: 10px;">	</i>상품 관리<span	class="badge badge-success">${cnt.product }</span></a> 
+								<a class="list-group-item" href="Admin-Member.do"><i class="bi bi-people-fill"	style="margin-right: 10px;"></i>회원 관리<span	class="badge badge-success">${cnt.buy }</span></a> 
 								<a	class="list-group-item" href="Admin-Category.do"><i class="bi bi-journal-text" style="margin-right: 10px;"></i>카테고리 	관리<span class="badge badge-success">${cnt.sell }</span></a>
 							</div>
 						</div>
@@ -66,13 +66,15 @@
 										<c:forEach items="${de_list }" var="de_item">
 											<c:if test="${item.product_no == de_item.declration_product_no}">
 											<p> - ${de_item.declration_id } : <span>${de_item.declration_comment }</span></p>
+											<div class="product-detail-btn">
+												<a href="detail.do?pno=${item.product_no }" class="btn btn-success btn-block">확인</a> 
+												<a class="btn btn-danger btn-block delete" href="Admin_Product_Delete.do?pno=${item.product_no }">게시물 삭제</a>
+												<a class="btn btn-danger btn-block delete" href="Admin_Declaration_Delete.do?pno=${de_item.declration_no }">신고내역 삭제</a>
+											</div>
 											</c:if>
 										</c:forEach>
 										</div>
-											<div class="product-detail-btn">
-												<a href="detail.do?pno=${item.product_no }" class="btn btn-success btn-block">확인</a> 
-												<a class="btn btn-danger btn-block" href="#">삭제</a>
-											</div></td>
+											</td>
 									</tr>
 								</c:forEach>
 							</table>

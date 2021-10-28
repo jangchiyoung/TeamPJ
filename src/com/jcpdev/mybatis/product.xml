@@ -221,7 +221,11 @@
 	<!-- 신고 상품 내역 (상품으로 묶어서) -->
 	<select id="admin_declaration" resultType="Declaration">
 		select * from
-		declaration ;
+		declaration
 	</select>
 
+	<delete id="delete_declaration">
+		delete from declaration where
+		declration_no=#{declration_no}
+	</delete>
 </mapper>

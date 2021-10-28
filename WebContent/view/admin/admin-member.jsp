@@ -30,8 +30,8 @@
 						<div class="card mt-3">
 							<div class="list-group list-group-flush">
 								<a class="list-group-item " href="Admin.do"> <i	class="bi bi-info-circle" style="margin-right: 10px;"></i>통계</a> 
-								<a class="list-group-item" href="Admin-Product.do"><i class="bi bi-bag-plus" style="margin-right: 10px;">	</i>상품 관리<span	class="badge badge-success">${cnt.product }</span></a> 
-								<a class="list-group-item active" href="Admin-Member.do"><i class="bi bi-bag-fill"	style="margin-right: 10px;"></i>회원 관리<span	class="badge badge-success">${cnt.buy }</span></a> 
+								<a class="list-group-item" href="Admin-Product.do"><i class="bi bi-cart-fill" style="margin-right: 10px;">	</i>상품 관리<span	class="badge badge-success">${cnt.product }</span></a> 
+								<a class="list-group-item active" href="Admin-Member.do"><i class="bi bi-people-fill"	style="margin-right: 10px;"></i>회원 관리<span	class="badge badge-success">${cnt.buy }</span></a> 
 								<a	class="list-group-item" href="Admin-Category.do"><i class="bi bi-journal-text" style="margin-right: 10px;"></i>카테고리 	관리<span class="badge badge-success">${cnt.sell }</span></a>
 							</div>
 						</div>
@@ -41,7 +41,7 @@
 							<div class="card mb-3">
 								<div class="card-body">
 									<h4 style="margin-bottom: 20px;">
-										<i class="bi bi-bag-fill" style="margin-right: 10px;"></i>회원
+										<i class="bi bi-people-fill" style="margin-right: 10px;"></i>회원
 										내역
 									</h4>
 									<table class="table table-hover">
@@ -62,7 +62,7 @@
 											<td style="width: 8em;"><p class="product_list_name">${user.member_email }</p></td>
 											<td style="width: 8em;"><p class="product_list_name">${user.member_address }</p></td>
 											<td>
-                			<a class="btn btn-danger" href="DeleteMemberAction.do?member_id=${user.member_id }"><i class="bi bi-trash"></i></a>
+                			<a class="btn btn-danger"  href="DeleteMemberAction.do?member_id=${user.member_id }"><i	class="bi bi-person-dash-fill"></i></a>
                 		</td>
 										</tr>
 										</c:forEach>
@@ -72,7 +72,7 @@
 							<div class="card mb-3">
 								<div class="card-body">
 									<h4 style="margin-bottom: 20px;">
-										<i class="bi bi-bag-fill" style="margin-right: 10px;"></i>탈퇴 회원
+										<i class="bi bi-people-fill" style="margin-right: 10px;"></i>탈퇴 회원
 										내역
 									</h4>
 									<table class="table table-hover">
@@ -93,7 +93,7 @@
 											<td style="width: 8em;"><p class="product_list_name">${user.member_email }</p></td>
 											<td style="width: 8em;"><p class="product_list_name">${user.member_address }</p></td>
 											<td>
-                			<a class="btn btn-danger1" href="RecoverMemberAction.do?member_id=${user.member_id }"><i class="bi bi-trash"></i></a>
+                			<a class="btn btn-danger1" href="RecoverMemberAction.do?member_id=${user.member_id }"><i class="bi bi-person-plus-fill"></i></a>
                 		</td>
 										</tr>
 										</c:forEach>

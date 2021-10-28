@@ -54,7 +54,7 @@
                 	<c:forEach items="${list }" var="item" varStatus="index">
                 	<tr>
                 		<td><p class="product_list_p">${memlist[index.count-1].member_name}</p></td>
-						<td><p class="product_list_name">${item.product_name}</p></td>
+						<td><p class="product_list_p">${item.product_name}</p></td>
 						<td><p class="product_list_p"><fmt:formatDate value="${item.product_done_date}" pattern="yyyy-MM-dd"/></p></td>
 						<td><p class="product_list_p"><fmt:formatNumber value="${item.product_price}" pattern="#,###"/>원</p></td>
                 	</tr>

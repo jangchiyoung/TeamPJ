@@ -26,7 +26,7 @@ public class DeleteMemberAction implements Action {
 		request.setAttribute("message", "회원 삭제 성공!!");
 		
 		foward.isRedirect = true;
-		foward.url = "./admin_memberList.do";
+		foward.url = "./Admin-Member.do";
 		return foward;
 		
 	};

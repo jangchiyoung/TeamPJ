@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import com.jcpdev.dao.FavoritesDao;
 import com.jcpdev.dao.MemberDao;
 import com.jcpdev.dao.ProductDao;
+import com.jcpdev.dto.Declaration;
 import com.jcpdev.dto.Favorites;
 import com.jcpdev.dto.Member;
 import com.jcpdev.dto.Product;
@@ -45,6 +46,7 @@ public class ProductDetailAction implements Action {
 		//관심테이블에서 글거와서 아이디랑 매칭해서 있는지업슨ㄴ지 확인 학 ㅗblooen값으로 넘기기
 		boolean favCheck = true;
 		
+		int de_check = 0;
 		if(session.getAttribute("user_id") != null) {
 			
 			String id = (String)session.getAttribute("user_id");
@@ -57,11 +59,18 @@ public class ProductDetailAction implements Action {
 				}
 			}
 			
+			List<Declaration> de_list =  dao.select_Declaration(idx);
+			for(Declaration vo : de_list) {	//상품에 신고테이블에 회원이 있나없나
+				if(vo.getDeclration_id().equals(id)) {
+					de_check =1;
+				}
+			}
 		}
 		
 		request.setAttribute("bean", bean);	//상품정보
 		request.setAttribute("favCheck", favCheck);	//상품정보
 		request.setAttribute("mem", mbean);	//판매자 정보
+		request.setAttribute("decal_check", de_check);	//상품 신고 정보
 		
 		ActionForward foward = new ActionForward();
 		foward.isRedirect = false;
