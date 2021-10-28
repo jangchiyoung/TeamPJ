@@ -1,5 +1,6 @@
 package com.jcpdev.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -103,4 +104,48 @@ public class MemberDao {
 		mapper.close();
 	}
 
+	public int admin_cnt_ing() { // 활동중인 회원 cnt
+		SqlSession mapper = sqlFactory.openSession();
+		int result = mapper.selectOne("Member.admin_cnt_ing");
+		mapper.close();
+		return result;
+	}
+
+	public int admin_cnt_done() { // 탈퇴 회원 cnt
+		SqlSession mapper = sqlFactory.openSession();
+		int result = mapper.selectOne("Member.admin_cnt_done");
+		mapper.close();
+		return result;
+	}
+	
+	public List<Member> getMemberList(){ 
+		//key(변수명처럼 이해) String, value 는 int
+		List<Member> list = null;
+		SqlSession mapper = sqlFactory.openSession();
+		list = mapper.selectList("Member.getMemberList");  
+		//	mapper.close();
+		return list;
+	}
+	
+	public List<Member> getWithdrawalMemberList(){ 
+		//key(변수명처럼 이해) String, value 는 int
+		List<Member> list = null;
+		SqlSession mapper = sqlFactory.openSession();
+		list = mapper.selectList("Member.getWithdrawalMemberList");  
+		//	mapper.close();
+		return list;
+	}
+	public void delete_member(String member_id) {
+		SqlSession mapper = sqlFactory.openSession();
+		mapper.update("Member.delete_member", member_id);
+		mapper.commit();
+		mapper.close();
+	}
+	
+	public void recover_member(String member_id) {
+		SqlSession mapper = sqlFactory.openSession();
+		mapper.update("Member.recover_member", member_id);
+		mapper.commit();
+		mapper.close();
+	}
 }

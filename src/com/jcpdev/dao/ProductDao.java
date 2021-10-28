@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.jcpdev.dto.Declaration;
 import com.jcpdev.dto.Member;
 import com.jcpdev.dto.Product;
 import com.jcpdev.mybatis.SqlSessionBean;
@@ -29,12 +30,13 @@ public class ProductDao {
 		mapper.close();
 		return list;
 	}
-	public List<Product> getAddList(Map<String, Integer> map){ 
-		//key(변수명처럼 이해) String, value 는 int
+
+	public List<Product> getAddList(Map<String, Integer> map) {
+		// key(변수명처럼 이해) String, value 는 int
 		List<Product> list = null;
 		SqlSession mapper = factory.openSession();
-		list = mapper.selectList("product.getAddList",map);  
-		//	mapper.close();
+		list = mapper.selectList("product.getAddList", map);
+		mapper.close();
 		return list;
 	}
 
@@ -45,7 +47,7 @@ public class ProductDao {
 		mapper.close();
 		return list;
 	}
-	
+
 	public List<Product> getSearchListAdd(Map<String, Object> map) { // 상품 검색 리스트
 		List<Product> list = null;
 		SqlSession mapper = factory.openSession();
@@ -164,4 +166,66 @@ public class ProductDao {
 		return Vo;
 	}
 
+	public void insert_Declaration(Declaration dto) { // 신고상품 등록
+		SqlSession mapper = factory.openSession();
+		mapper.insert("product.insert_Declaration", dto);
+		mapper.commit();
+		mapper.close();
+	}
+
+	public List<Declaration> select_Declaration(int declration_product_no) {
+		List<Declaration> list = null;
+		SqlSession mapper = factory.openSession();
+		list = mapper.selectList("product.select_Declaration", declration_product_no);
+		mapper.close();
+		return list;
+	}
+
+	public int admin_done_cnt() { // 거래 완료 상품 개수
+		SqlSession mapper = factory.openSession();
+		int cnt = 0;
+		cnt = mapper.selectOne("product.admin_done_cnt");
+		mapper.close();
+		return cnt;
+	}
+
+	public int admin_ing_cnt() { // 거래 중 상품 개수
+		SqlSession mapper = factory.openSession();
+		int cnt = 0;
+		cnt = mapper.selectOne("product.admin_ing_cnt");
+		mapper.close();
+		return cnt;
+	}
+
+	public int admin_total_price() { // 총 거래 금액
+		SqlSession mapper = factory.openSession();
+		int total = 0;
+		total = mapper.selectOne("product.admin_total_price");
+		mapper.close();
+		return total;
+	}
+
+	public int admin_declaration_cnt() { // 신고 상품 개수
+		SqlSession mapper = factory.openSession();
+		int cnt = 0;
+		cnt = mapper.selectOne("product.admin_declaration_cnt");
+		mapper.close();
+		return cnt;
+	}
+
+	public List<Declaration> admin_declaration_product() {
+		List<Declaration> list = null;
+		SqlSession mapper = factory.openSession();
+		list = mapper.selectList("product.admin_declaration_product");
+		mapper.close();
+		return list;
+	}
+
+	public List<Declaration> admin_declaration() {
+		List<Declaration> list = null;
+		SqlSession mapper = factory.openSession();
+		list = mapper.selectList("product.admin_declaration");
+		mapper.close();
+		return list;
+	}
 }

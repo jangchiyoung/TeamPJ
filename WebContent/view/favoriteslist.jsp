@@ -46,15 +46,15 @@
                 <h4 style="margin-bottom: 20px;"><i class="bi bi-heart-fill" style="margin-right: 10px;"></i> 관심 목록</h4>
                 <table class="table table-hover">
                 	<tr>
-                		<th>판매자</th>
-                		<th>상품이름</th>
-                		<th>가격</th>
-                		<th>삭제</th>
+                		<th><p class="product_list_p">판매자</p></th>
+                		<th><p class="product_list_p">상품이름</p></th>
+                		<th><p class="product_list_p">가격</p></th>
+                		<th><p class="product_list_p">삭제</p></th>
                 	</tr>
                 	<c:forEach items="${list }" var="item" varStatus="index">
                 	<tr onclick="location.href='detail.do?pno=${item.product_no}'">
                 		<td>${memlist[index.count-1].member_name}</td>
-                		<td style="width: 23em;"><p class="product_list_name">${item.product_name}</p></td>
+                		<td><p class="product_list_p">${item.product_name}</p></td>
 						<td><fmt:formatNumber value="${item.product_price}" pattern="#,###"/>원</td>
                 		<td>
                 			<a class="btn btn-danger" href="FavoritesDeleteAction.do?pno=${item.product_no }"><i class="bi bi-trash"></i></a>

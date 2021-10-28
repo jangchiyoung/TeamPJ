@@ -56,5 +56,12 @@ public class FavoritesDao {
 		mapper.commit();
 		mapper.close();
 	}
+	
+	public void delete_id(String id) {
+		SqlSession mapper = factory.openSession();
+		mapper.delete("Favories.delete_id", id);
+		mapper.commit();
+		mapper.close();
+	}
 
 }

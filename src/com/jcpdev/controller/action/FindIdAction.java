@@ -15,7 +15,6 @@ public class FindIdAction implements Action {
 	
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException ,java.io.IOException {
 
-		//테이블 insert
 		HttpSession session = request.getSession();
 		request.setCharacterEncoding("UTF-8");
 		String member_name =request.getParameter("member_name");
@@ -38,11 +37,11 @@ public class FindIdAction implements Action {
 		
 		if(user != null){
 			request.setAttribute("bean", user);
-			foward.url="findId_complete_success.do";
+			foward.url = "findId_complete_success.do";
 		}else {
 			request.setAttribute("message", "아이디 찾기 실패");
 			request.setAttribute("url", "findId_complete_error.do");
-			foward.url="error/alert.jsp";
+			foward.url = "error/alert.jsp";
 		}
 		return foward;
 	};

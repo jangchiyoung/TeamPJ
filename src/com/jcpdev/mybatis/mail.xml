@@ -48,5 +48,12 @@
 		mail_product_no= #{mail_product_no}
 	</delete>
 
+	<delete id="delete_sendid" parameterType="String">
+		delete from mail where mail_sendid = #{mail_sendid}
+	</delete>
+	
+	<delete id="delete_postid" parameterType="String">
+		delete from mail where mail_postid = #{mail_postid}
+	</delete>
 
 </mapper>

@@ -54,7 +54,7 @@ List<Mail> list = mail_dao.getMailList(room);
 		<div class="right_div">
 			<div class="mail_id_content" style="display: none;"><%=m.getMail_sendid()%></div>
 			<div class="mail_right_content"><%=m.getMail_content()%></div>
-			<div class="mail_right_date_content"><fmt:formatDate value="<%=m.getMail_date()%>" pattern="yyyy-MM-dd"/></div>
+			<div class="mail_right_date_content"><fmt:formatDate value="<%=m.getMail_date()%>" type="both"/></div>
 		</div>
 	</div>
 	<%
@@ -69,7 +69,7 @@ List<Mail> list = mail_dao.getMailList(room);
 			<div class="mail_id_content"><%=m.getMail_sendid()%></div>
 			</div>
 		<div class="mail_left_content"><%=m.getMail_content()%></div>
-		<div class="mail_left_date_content"><fmt:formatDate value="<%=m.getMail_date()%>" pattern="yyyy-MM-dd"/></div>
+		<div class="mail_left_date_content"><fmt:formatDate value="<%=m.getMail_date()%>" type="both"/></div>
 	</div>
 	</div>
 	<%}}%>

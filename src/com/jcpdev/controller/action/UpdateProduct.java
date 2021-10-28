@@ -38,7 +38,6 @@ public class UpdateProduct implements Action {
 			
 			ProductDao pdao = ProductDao.getInstance();
 			Product vo = new Product(product_no,product_category,product_name, product_content, product_price, filename1, filename2, filename3,id, null, null,0, null,null,0);
-			System.out.println(vo);
 			pdao.update_product(vo);
 		} catch (Exception e) {
 			e.printStackTrace();

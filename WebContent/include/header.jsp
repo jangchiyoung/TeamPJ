@@ -59,12 +59,19 @@ window.onload = function mailRefresh() {
           <a class="btn btn-outline-success" href="join.do">회원가입</a>
         </li>
         </c:if>
-        <c:if test="${sessionScope.user_id != null}">
+       	<c:if test="${sessionScope.user_id != null and !(sessionScope.user_id eq 'admin')}">
         <li class="nav-item">
          	<img class="img_profile" src="./img/messge.png" onclick="location.href='mail.do'">
          	<div class="chat_cnt" id="mail_cnt">0</div>
          	<img class="img_profile" src="/img/${user_img }" onclick="location.href='mypage.do'">
        		<a class="btn btn-outline-success" href="mypage.do">${user_name} 님</a>
+          <a class="btn btn-outline-success" href="logout.do">로그아웃</a>
+        </li>
+        </c:if>
+        <c:if test="${sessionScope.user_id eq 'admin'}">
+        <li class="nav-item">
+         	<img class="img_profile" src="/img/${user_img }" onclick="location.href='Admin.do'">
+       		<a class="btn btn-outline-success" href="Admin.do">관리자 님</a>
           <a class="btn btn-outline-success" href="logout.do">로그아웃</a>
         </li>
         </c:if>

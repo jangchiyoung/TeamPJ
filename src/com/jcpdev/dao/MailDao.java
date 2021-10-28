@@ -96,5 +96,19 @@ public class MailDao {
 		mapper.commit();
 		mapper.close();
 	}
+	
+	public void delete_sendid(String id) {
+		SqlSession mapper = factory.openSession();
+		mapper.delete("MailSpace.delete_sendid", id);
+		mapper.commit();
+		mapper.close();
+	}
+	
+	public void delete_postid(String id) {
+		SqlSession mapper = factory.openSession();
+		mapper.delete("MailSpace.delete_postid", id);
+		mapper.commit();
+		mapper.close();
+	}
 
 }

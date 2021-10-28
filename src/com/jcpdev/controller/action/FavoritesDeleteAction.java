@@ -28,7 +28,7 @@ public class FavoritesDeleteAction implements Action {
 		Favorites fav = new Favorites(0, product_no, id);
 		FavoritesDao dao = FavoritesDao.getInstance();
 		ProductDao pdao = ProductDao.getInstance();
-
+		
 		dao.delete(fav);
 		pdao.delete_like(product_no);
 

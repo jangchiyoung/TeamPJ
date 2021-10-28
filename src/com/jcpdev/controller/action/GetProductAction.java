@@ -7,7 +7,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jcpdev.dao.CategoryDao;
 import com.jcpdev.dao.ProductDao;
+import com.jcpdev.dto.Category;
 import com.jcpdev.dto.Product;
 
 public class GetProductAction implements Action {
@@ -26,7 +28,9 @@ public class GetProductAction implements Action {
 		if(vo.getProduct_img1()!=null) imgCnt++;
 		if(vo.getProduct_img2()!=null) imgCnt++;
 		if(vo.getProduct_img3()!=null) imgCnt++;
-
+		List<Category> category = CategoryDao.getInstance().getAll();
+		
+		request.setAttribute("category", category);
 		request.setAttribute("list", vo);
 		request.setAttribute("imgCnt", imgCnt);
 

@@ -46,17 +46,17 @@
                 <h4 style="margin-bottom: 20px;"><i class="bi bi-bag-fill" style="margin-right: 10px;"></i>구매 내역</h4>
                 <table class="table table-hover">
                 	<tr>
-                		<th>판매자</th>
-                		<th>상품이름</th>
-                		<th>거래날짜</th>
-                		<th>가격</th>
+                		<th><p class="product_list_p">판매자</p></th>
+                		<th><p class="product_list_p">상품이름</p></th>
+                		<th><p class="product_list_p">거래날짜</p></th>
+                		<th><p class="product_list_p">가격</p></th>
                 	</tr>
                 	<c:forEach items="${list }" var="item" varStatus="index">
                 	<tr>
-                		<td>${memlist[index.count-1].member_name}</td>
-						<td style="width: 23em;"><p class="product_list_name">${item.product_name}</p></td>
-						<td><fmt:formatDate value="${item.product_done_date}" pattern="yyyy-MM-dd"/></td>
-						<td><fmt:formatNumber value="${item.product_price}" pattern="#,###"/>원</td>
+                		<td><p class="product_list_p">${memlist[index.count-1].member_name}</p></td>
+						<td><p class="product_list_name">${item.product_name}</p></td>
+						<td><p class="product_list_p"><fmt:formatDate value="${item.product_done_date}" pattern="yyyy-MM-dd"/></p></td>
+						<td><p class="product_list_p"><fmt:formatNumber value="${item.product_price}" pattern="#,###"/>원</p></td>
                 	</tr>
                 	</c:forEach>
 				</table>

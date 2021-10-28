@@ -30,4 +30,8 @@
 	<select id="getFavListCnt" parameterType="String"	resultType="int">
 		select count(*) from favorites where favorites_member_id = #{id};
 	</select>
+	
+	<delete id="delete_id" parameterType="String">
+		delete from favorites where favories_member_id = #{favories_member_id}
+	</delete>
 </mapper>

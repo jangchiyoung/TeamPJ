@@ -11,11 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.jcpdev.controller.action.Action;
 import com.jcpdev.controller.action.ActionForward;
+import com.jcpdev.controller.action.Admin_CategoryAction;
+import com.jcpdev.controller.action.Admin_Category_AddAction;
+import com.jcpdev.controller.action.Admin_Category_DeleteAction;
+import com.jcpdev.controller.action.Admin_MainAction;
+import com.jcpdev.controller.action.Admin_ProductAction;
+import com.jcpdev.controller.action.DeleteMemberAction;
 import com.jcpdev.controller.action.DeleteProduct;
 import com.jcpdev.controller.action.FavoritesDeleteAction;
 import com.jcpdev.controller.action.FavoritesListAction;
 import com.jcpdev.controller.action.FindIdAction;
 import com.jcpdev.controller.action.FindPasswordAction;
+import com.jcpdev.controller.action.GetMemberList;
 import com.jcpdev.controller.action.GetMyBuyList;
 import com.jcpdev.controller.action.InsertAction;
 import com.jcpdev.controller.action.LoginAction;
@@ -36,6 +43,7 @@ import com.jcpdev.controller.action.GetMyList;
 import com.jcpdev.controller.action.InsertProduct;
 import com.jcpdev.controller.action.ProductDetailAction;
 import com.jcpdev.controller.action.Product_Like_Action;
+import com.jcpdev.controller.action.RecoverMemberAction;
 import com.jcpdev.controller.action.SearchAction;
 import com.jcpdev.controller.action.UpdatePasswordAction;
 import com.jcpdev.controller.action.UpdateProduct;
@@ -177,7 +185,7 @@ public class FrontController extends HttpServlet {
 		} else if (spath.equals("/orderProfile.do")) {
 			Action action = new OrderProfileAction();
 			forward = action.execute(request, response);
-		}  else if (spath.equals("/FavoritesDeleteAction.do")) {
+		} else if (spath.equals("/FavoritesDeleteAction.do")) {
 			Action action = new FavoritesDeleteAction();
 			forward = action.execute(request, response);
 		} else if (spath.equals("/GetProduct.do")) {
@@ -185,6 +193,30 @@ public class FrontController extends HttpServlet {
 			forward = action.execute(request, response);
 		} else if (spath.equals("/UpdateProduct.do")) {
 			Action action = new UpdateProduct();
+			forward = action.execute(request, response);
+		} else if (spath.equals("/Admin.do")) {
+			Action action = new Admin_MainAction();
+			forward = action.execute(request, response);
+		} else if (spath.equals("/Admin-Product.do")) {
+			Action action = new Admin_ProductAction();
+			forward = action.execute(request, response);
+		} else if (spath.equals("/Admin-Category.do")) {
+			Action action = new Admin_CategoryAction();
+			forward = action.execute(request, response);
+		} else if (spath.equals("/Admin_category_delete.do")) {
+			Action action = new Admin_Category_DeleteAction();
+			forward = action.execute(request, response);
+		} else if (spath.equals("/Admin_category_Add.do")) {
+			Action action = new Admin_Category_AddAction();
+			forward = action.execute(request, response);
+		} else if (spath.equals("/Admin-Member.do")) {
+			Action action = new GetMemberList();
+			forward = action.execute(request, response);
+		} else if (spath.equals("/DeleteMemberAction.do")) {
+			Action action = new DeleteMemberAction();
+			forward = action.execute(request, response);
+		} else if (spath.equals("/RecoverMemberAction.do")) {
+			Action action = new RecoverMemberAction();
 			forward = action.execute(request, response);
 		} 
 

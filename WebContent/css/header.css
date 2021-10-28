@@ -1,12 +1,12 @@
 @charset "UTF-8";
 
 @FONT-FACE {
-   font-family: 'monhwa';
-   src: url("../include/monhwa.ttf");
+   	font-family: 'monhwa';
+   	src: url("../include/monhwa.ttf");
 }
 
 * {
-   font-family: monhwa;
+   	font-family: monhwa;
 }
 .html, body {
 	height: 100%;
@@ -36,7 +36,7 @@
 }
 
 .header {
-	height: 120px;
+	height: 100px;
 	background-color: white;
 	box-shadow: 0 4px 4px -4px black;
 }
