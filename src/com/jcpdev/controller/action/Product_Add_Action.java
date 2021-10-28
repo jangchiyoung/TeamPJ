@@ -17,6 +17,7 @@ public class Product_Add_Action implements Action {
 			throws ServletException, IOException {
 		
 		List<Category> category = CategoryDao.getInstance().getAll();
+		System.out.println(category);
 		request.setAttribute("category", category);
 		
 

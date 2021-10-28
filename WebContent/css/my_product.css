@@ -27,7 +27,7 @@
 	overflow: auto;
 }
 
-.product_list_name {
+.product_list_p {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	height: 24px;

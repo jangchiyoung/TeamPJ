@@ -39,9 +39,8 @@
 											<div class="form-group">
 												<a>최대 3개까지만 업로드 가능합니다.</a> 
 												<input type="file" name="product_img1" class="form-control user_picked_files" accept="image/*" required />
-												<c:forEach begin="2" end="3" varStatus="index">
-												<input type="file" name="product_img${index.count }" class="form-control user_picked_files" accept="image/*" />
-												</c:forEach>
+												<input type="file" name="product_img2" class="form-control user_picked_files" accept="image/*"  />
+												<input type="file" name="product_img3" class="form-control user_picked_files" accept="image/*"  />
 											</div>
 											<ul class="cvf_uploaded_files">
 											</ul>
@@ -74,21 +73,9 @@
 									<div class="item_select_box">
 										<select name="product_category">
 											<option value="${list.product_category }" selected="selected">${list.product_category }</option>
-											<option value="스포츠">스포츠</option>
-											<option value="뷰티">뷰티</option>
-											<option value="여성의류">여성의류</option>
-											<option value="남성의류">남성의류</option>
-											<option value="패션잡화">패션잡화</option>
-											<option value="휴대폰">휴대폰</option>
-											<option value="컴퓨터">컴퓨터</option>
-											<option value="카메라">카메라</option>
-											<option value="디지털가전">디지털가전</option>
-											<option value="가구">가구</option>
-											<option value="생활">생활</option>
-											<option value="도서">도서</option>
-											<option value="문구">문구</option>
-											<option value="반려동물용품">반려동물용품</option>
-											<option value="기타">기타</option>
+												<c:forEach items="${category }" var="item">
+											<option value="${item.category_name}">${item.category_name }</option>
+												</c:forEach>
 										</select>
 									</div>
 								</dd>

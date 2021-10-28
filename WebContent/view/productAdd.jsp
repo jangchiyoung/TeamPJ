@@ -67,20 +67,9 @@
 									<div class="item_select_box">
 										<select name="product_category">
 											<option value="기타" selected="selected">기타</option>
-											<option value="스포츠">스포츠</option>
-											<option value="뷰티">뷰티</option>
-											<option value="여성의류">여성의류</option>
-											<option value="남성의류">남성의류</option>
-											<option value="패션잡화">패션잡화</option>
-											<option value="휴대폰">휴대폰</option>
-											<option value="컴퓨터">컴퓨터</option>
-											<option value="카메라">카메라</option>
-											<option value="디지털가전">디지털,가전</option>
-											<option value="가구">가구</option>
-											<option value="생활">생활</option>
-											<option value="도서">도서</option>
-											<option value="문구">문구</option>
-											<option value="반려동물용품">반려동물용품</option>
+										<c:forEach items="${category }" var="item">
+											<option value="${item.category_name}">${item.category_name }</option>
+										</c:forEach>
 										</select>
 									</div>
 								</dd>

@@ -42,6 +42,7 @@ import com.jcpdev.controller.action.GetProductAction;
 import com.jcpdev.controller.action.GetMyList;
 import com.jcpdev.controller.action.InsertProduct;
 import com.jcpdev.controller.action.ProductDetailAction;
+import com.jcpdev.controller.action.Product_Add_Action;
 import com.jcpdev.controller.action.Product_Like_Action;
 import com.jcpdev.controller.action.RecoverMemberAction;
 import com.jcpdev.controller.action.SearchAction;
@@ -129,8 +130,8 @@ public class FrontController extends HttpServlet {
 			Action action = new MakeMailAction();
 			forward = action.execute(request, response);
 		} else if (spath.equals("/productAdd.do")) {
-			path = "./view/productAdd.jsp";
-			forward = new ActionForward(false, path);
+			Action action = new Product_Add_Action();
+			forward = action.execute(request, response);
 		} else if (spath.equals("/detail.do")) {
 			Action action = new ProductDetailAction();
 			forward = action.execute(request, response);
@@ -185,7 +186,7 @@ public class FrontController extends HttpServlet {
 		} else if (spath.equals("/orderProfile.do")) {
 			Action action = new OrderProfileAction();
 			forward = action.execute(request, response);
-		} else if (spath.equals("/FavoritesDeleteAction.do")) {
+		} else if (spath.equals("/FavoritesDeleteAction.do")) { 
 			Action action = new FavoritesDeleteAction();
 			forward = action.execute(request, response);
 		} else if (spath.equals("/GetProduct.do")) {
@@ -200,11 +201,17 @@ public class FrontController extends HttpServlet {
 		} else if (spath.equals("/Admin-Product.do")) {
 			Action action = new Admin_ProductAction();
 			forward = action.execute(request, response);
+		} else if (spath.equals("/Admin-Member.do")) {
+			path = "./view/admin/admin-member.jsp";
+			forward = new ActionForward(false, path);
 		} else if (spath.equals("/Admin-Category.do")) {
 			Action action = new Admin_CategoryAction();
 			forward = action.execute(request, response);
 		} else if (spath.equals("/Admin_category_delete.do")) {
 			Action action = new Admin_Category_DeleteAction();
+			forward = action.execute(request, response);
+		} else if (spath.equals("/Admin_category_Add.do")) {
+			Action action = new Admin_Category_AddAction();
 			forward = action.execute(request, response);
 		} else if (spath.equals("/Admin_category_Add.do")) {
 			Action action = new Admin_Category_AddAction();

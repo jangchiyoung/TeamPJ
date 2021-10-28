@@ -23,7 +23,6 @@
 
 .detail-img {
 	padding: 0px 3em;
-	
 }
 
 .article-profile-link {
@@ -71,16 +70,19 @@
 	letter-spacing: -0.6px;
 	color: #868e96;
 }
+
 .product_content_pre {
 	white-space: pre-wrap;
 	word-break: break-all;
 	overflow: auto;
 }
+
 .member_id {
 	background-color: white;
 	border: none;
 	font-size: large;
 }
+
 .heart {
 	color: red;
 }
