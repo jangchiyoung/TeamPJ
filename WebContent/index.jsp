@@ -1,3 +1,6 @@
+<%@page import="com.jcpdev.dao.ProductDao"%>
+<%@page import="com.jcpdev.dto.Product"%>
+<%@page import="java.net.URLDecoder"%>
 <%@include file="include/header.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -8,10 +11,11 @@
 <link rel="stylesheet" type="text/css" href="css/footer.css">
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/upScroll.css">
+<link rel="stylesheet" type="text/css" href="css/cookie.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<section class="home-main-section">
+<section class="home-main-section" style="display: flex;">
 		
-	<div class="row">
+	<div class="row" style="width: 90%;">
 	<h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">오늘의 상품 추천</h2>
 		<c:forEach items="${list }" var="item" varStatus="index">
 			<div class="card col-md-3 col-sm-6"
@@ -37,6 +41,29 @@
 		</div>
 		</div>
 	</div>
+	<div class="cookie_status">
+	</div>
+<div class="cookie_div">
+	<div class="cookie_status">
+	<h5>최근 본 상품</h5>
+	</div>
+	<div class="cookie">
+		<%
+			if(ck!=null){
+				for(Cookie c: ck){
+					if(c.getName().indexOf("product_cookie") != -1){
+						Product vo = ProductDao.getInstance().getOne(Integer.parseInt(c.getValue()));
+					%>
+					<div class="cookie_img">
+						<img src="/img/<%=vo.getProduct_img1()%>" onclick="location.href='detail.do?pno=<%=vo.getProduct_no()%>'">
+						<a onclick="removeCK('product_cookie<%=vo.getProduct_no()%>')"><i class="bi bi-x-circle"></i></a>
+					</div>
+					<%}
+				}
+			}
+		%>
+	</div>
+</div>
 </section>
 
 <script type="text/javascript">
@@ -64,9 +91,6 @@ function getList(StartNo,EndNo){
 			success : function(data) { 
 				$('#add').html(data); 
 				$('#get').remove();
-			},
-			error : function(data) {
-				alert("더 이상 조회목록이 없습니다.")
 			}
 		});
 	}

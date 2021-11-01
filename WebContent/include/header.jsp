@@ -7,7 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <title>아나바다</title>
+<%
+	request.setCharacterEncoding("UTF-8");
+	Cookie[] ck = request.getCookies();
+%>
 <!-- 합쳐지고 최소화된 최신 CSS -->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -17,6 +22,13 @@
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script> -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script> -->
 <script type="text/javascript">
+function removeCK(cookie_name){
+	var date = new Date();
+	date.setTime(date.getTime() + (-1 * 60 * 60 * 1000));
+	var expires = "; expires=" + date.toGMTString();
+	document.cookie = cookie_name+ "=" + "" + expires + "; path=/TeamPJ"; 
+	location.reload();
+}
 function enterkey() {
 	if (window.event.keyCode == 13) {
 		document.charset = "utf-8"; 
@@ -59,7 +71,7 @@ window.onload = function mailRefresh() {
           <a class="btn btn-outline-success" href="join.do">회원가입</a>
         </li>
         </c:if>
-       	<c:if test="${sessionScope.user_id != null and !(sessionScope.user_id eq 'admin')}">
+        <c:if test="${sessionScope.user_id != null and !(sessionScope.user_id eq 'admin')}">
         <li class="nav-item">
          	<img class="img_profile" src="./img/messge.png" onclick="location.href='mail.do'">
          	<div class="chat_cnt" id="mail_cnt">0</div>

@@ -41,6 +41,11 @@
 	</div>
 </section>
 <script>
+function enterkey(room) {
+	if (window.event.keyCode == 13) {
+		insert_mail(room);
+	} 
+}
 function getMailList(room,id,p_no){
 	$.ajax({
 			type : 'post',
@@ -50,7 +55,6 @@ function getMailList(room,id,p_no){
 			success : function(data) { 
 				$('#message').html(data);
 				<!-- 채팅 스크롤 하단으로 보내기 -->
-				$('#chatContent').scrollTop($('#chatContent')[0].scrollHeight);
 			}
 		});
 		readCheck(room,id,p_no);
@@ -89,7 +93,7 @@ function insert_mail(room){
 			dataType : 'html', 
 			success : function() { 
 				getMailList(room,postid,product_no);
-
+				
 			}
 		});
 	}
